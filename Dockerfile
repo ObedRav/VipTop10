@@ -8,10 +8,8 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install project dependencies
-RUN npm install --include=dev
-
-# Copy the rest of the project files to the container
-COPY . .
+RUN npm install
+RUN npm install typescript
 
 # Build the TypeScript code
 RUN npm run tsc
