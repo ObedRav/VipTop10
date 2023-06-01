@@ -1,14 +1,19 @@
 import express from 'express'
+import mongoose from 'mongoose'
 
 const app = express()
 
 app.use(express.json())
 
-const PORT = 3000
+const PORT = 5000
 
-app.get('/taap', (_req, res) => {
-  res.send('tap!')
-})
+mongoose.connect('mongodb://captone:capstonePassword@mongo:27017/capstone?authSource=admin')
+  .then(() => {
+    console.log('Connected to MongoDB')
+  })
+  .catch((error: Error) => {
+    console.log(`Failed to connect to MongoDB ${error.message}`)
+  })
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
