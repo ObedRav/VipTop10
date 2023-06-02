@@ -1,15 +1,22 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 
 const app = express()
 
 app.use(express.json())
 
-const PORT = 5000
+dotenv.config()
 
-mongoose.connect('mongodb://captone:capstonePassword@mongo:27017/capstone?authSource=admin')
+const PORT = process.env.PORT ?? 3500
+const USER = process.env.DATABASE_USER ?? 'default'
+const PASSWORD = process.env.DATABASE_PASSWORD ?? 'default'
+
+const connectionString = `mongodb+srv://${USER}:${PASSWORD}@top10.6oki5fv.mongodb.net/?retryWrites=true&w=majority`
+
+mongoose.connect(connectionString)
   .then(() => {
-    console.log('Connected to MongoDB')
+    console.log('Connected to MongoDB Atlas')
   })
   .catch((error: Error) => {
     console.log(`Failed to connect to MongoDB ${error.message}`)
