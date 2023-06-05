@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Colombia",
+        "coordinates": "...",
+        "continent": "America" 
+    },
+    {
+        "name": "Dominican Republic",
+        "coordinates": "...",
+        "continent": "America"
+    },
+    {
+        "name": "United States",
+        "coordinates": "...",
+        "continent": "America"
+    }
+]
