@@ -1,8 +1,5 @@
-import mongoose, { Document, Schema } from 'mongoose'
-
-interface Category extends Document {
-  name: string
-}
+import mongoose, { Schema } from 'mongoose'
+import { Category } from '../types'
 
 const categorySchema = new Schema<Category>({
   name: { type: String, required: true }

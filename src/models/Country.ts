@@ -1,10 +1,5 @@
-import mongoose, { Document, Schema } from 'mongoose'
-
-interface Country extends Document {
-  name: string
-  coordinates: string
-  continent: string
-}
+import mongoose, { Schema } from 'mongoose'
+import { Country } from '../types'
 
 const countrySchema = new Schema<Country>({
   name: { type: String, required: true },
