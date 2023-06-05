@@ -5,13 +5,10 @@ FROM node:18
 WORKDIR /app
 
 # Copy package.json and package-lock.json to the container
-COPY package*.json ./
+COPY . .
 
 # Install project dependencies
 RUN npm install --include=dev
-
-# Copy the rest of the project files to the container
-COPY . .
 
 # Build the TypeScript code
 RUN npm run tsc

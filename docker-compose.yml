@@ -2,19 +2,12 @@ version: '3.9'
 
 services:
   app:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     ports:
       - 3000:3000
-    volumes:
-      - .:/app
-    links:
-      - mongo
 
   mongo:
     image: mongo
-    restart: always
     ports:
       - 27017:27017
     environment:
