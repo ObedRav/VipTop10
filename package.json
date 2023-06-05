@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev src/index.ts",
-    "tsc": "tsc",
+    "tsc": "tsc --build",
     "start": "node build/index.js",
     "lint_fix": "ts-standard --fix",
     "lint": "ts-standard",
