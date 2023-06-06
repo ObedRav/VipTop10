@@ -1,12 +1,228 @@
 [
-    {
-      "name": "Bogotá",
-      "country": "Colombia",
-      "coordinates": "..."
-    },
-    {
-      "name": "Medellín",
-      "country": "Colombia",
-      "coordinates": "..."
-    }
+  {
+    "name": "Bogotá",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Medellín",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Cali",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Barranquilla",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Cartagena",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Cúcuta",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Bucaramanga",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Pereira",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Santa Marta",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Ibagué",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Villavicencio",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Pasto",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Manizales",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Montería",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Valledupar",
+    "country": "Colombia",
+    "coordinates": "..."
+  },
+  {
+    "name": "Santo Domingo",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "Santiago de los Caballeros",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "Santo Domingo Este",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "Santo Domingo Norte",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "Santo Domingo Oeste",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "San Pedro de Macorís",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "La Romana",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "Bella Vista",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "San Cristóbal",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "Puerto Plata",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "San Francisco de Macorís",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "Higüey",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "La Vega",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "Concepción de La Vega",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "Moca",
+    "country": "Dominican Republic",
+    "coordinates": "..."
+  },
+  {
+    "name": "Austin",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Chicago",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Columbus",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Dallas",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Houston",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Indianapolis",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Jacksonville",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Los Angeles",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "New York City",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Philadelphia",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Phoenix",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "San Antonio",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "San Diego",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "San Francisco",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "San Jose",
+    "country": "USA",
+    "coordinates": "..."
+  }
+
 ]

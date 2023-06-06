@@ -1,8 +1,10 @@
 [
-    { "name" : "Bakery" },
-    { "name" : "Bar" },
-    { "name" : "Cafe" },
-    { "name" : "Meal Takeaway" },
-    { "name" : "Restaurant" },
-    { "name": "Food"}
+    { "Food" : "Bakery" },
+    { "Food" : "Bar" },
+    { "Food" : "Cafe" },
+    { "Food" : "Meal Takeaway" },
+    { "Food" : "Restaurant" },
+    { "Food": "Food"}
+
+
 ]
