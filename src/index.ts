@@ -1,7 +1,7 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import { createData } from './services/setUpDatabase'
+import routers from './routes/placesRouters'
 import cors from 'cors'
 import helmet from 'helmet'
 
@@ -25,6 +25,8 @@ app.use(cors(corsOptions))
 // Add Security for common vulnerabilities
 app.use(helmet())
 
+app.use('/api', routers)
+
 // Obtaining env variables for the connection
 const PORT = process.env.PORT ?? 3500
 const USER = process.env.DATABASE_USER ?? 'default'
@@ -40,15 +42,6 @@ mongoose.connect(connectionString)
   })
   .catch((error: Error) => {
     console.log(`Failed to connect to MongoDB ${error.message}`)
-  })
-
-// Creating the static data
-createData()
-  .then(_data => {
-    console.log('Data created sucessfully')
-  })
-  .catch((err: Error) => {
-    console.log('Error creating data: ' + err.message)
   })
 
 app.listen(PORT, () => {

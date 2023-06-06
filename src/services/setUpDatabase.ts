@@ -63,7 +63,7 @@ async function createCities (categories: Category[], countries: Country[]): Prom
 }
 
 // function to create data
-export async function createData (): Promise<undefined> {
+export async function createData (): Promise<any> {
   try {
     // Create categories
     const categories = await createCategories()
