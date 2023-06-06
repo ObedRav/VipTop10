@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import { createData } from './services/setUpDatabase'
 import cors from 'cors'
+import helmet from 'helmet'
 
 const app = express()
 
@@ -20,6 +21,9 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
+
+// Add Security from common vulnerabilities
+app.use(helmet())
 
 // Obtaining env variables for the connection
 const PORT = process.env.PORT ?? 3500
