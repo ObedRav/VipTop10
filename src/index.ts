@@ -2,6 +2,7 @@ import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import { createData } from './services/setUpDatabase'
+import cors from 'cors'
 
 const app = express()
 
@@ -9,6 +10,16 @@ app.use(express.json())
 
 // Load the env variables
 dotenv.config()
+
+// Config CORS
+const corsOptions = {
+  origin: '*', // Set the allowed origin(s)
+  methods: ['GET', 'POST'], // Specify the allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Specify the allowed headers
+  credentials: true // Enable sending cookies from the client
+}
+
+app.use(cors(corsOptions))
 
 // Obtaining env variables for the connection
 const PORT = process.env.PORT ?? 3500
