@@ -148,6 +148,81 @@
     "name": "Moca",
     "country": "Dominican Republic",
     "coordinates": "..."
+  },
+  {
+    "name": "Austin",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Chicago",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Columbus",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Dallas",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Houston",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Indianapolis",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Jacksonville",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Los Angeles",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "New York City",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Philadelphia",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "Phoenix",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "San Antonio",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "San Diego",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "San Francisco",
+    "country": "USA",
+    "coordinates": "..."
+  },
+  {
+    "name": "San Jose",
+    "country": "USA",
+    "coordinates": "..."
   }
 
 ]
