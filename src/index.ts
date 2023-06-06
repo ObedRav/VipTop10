@@ -22,7 +22,7 @@ const corsOptions = {
 
 app.use(cors(corsOptions))
 
-// Add Security from common vulnerabilities
+// Add Security for common vulnerabilities
 app.use(helmet())
 
 // Obtaining env variables for the connection
