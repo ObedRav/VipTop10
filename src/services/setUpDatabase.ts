@@ -1,4 +1,3 @@
-import mongoose from 'mongoose'
 // import models
 import CategoryModel from '../models/Category'
 import CityModel from '../models/City'
@@ -40,7 +39,7 @@ async function createCountries (): Promise<Country[]> {
 async function createCities (categories: Category[], countries: Country[]): Promise<undefined> {
   try {
     const cities = citiesData.map((city: any) => {
-      // loading the countries from the createds
+      // loading the country
       const country = countries.find((country) => country.name === city.country)
 
       const tmp: City = {
@@ -78,8 +77,5 @@ export async function createData (): Promise<undefined> {
     return undefined
   } catch (error) {
     console.error('Error creating data:', error)
-  } finally {
-    // Close the database connection
-    await mongoose.connection.close()
   }
 }
