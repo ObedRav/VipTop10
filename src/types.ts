@@ -1,5 +1,11 @@
 import mongoose, { Document } from 'mongoose'
 
+export enum Countries {
+  Colombia = 'Colombia',
+  DominicanRepublic = 'Dominican Republic',
+  UnitedStates = 'United States'
+}
+
 export interface Category extends Document {
   name: string
 }
@@ -12,7 +18,7 @@ export interface City {
 }
 
 export interface Country extends Document {
-  name: string
+  name: Countries
   coordinates: string
   continent: string
 }
