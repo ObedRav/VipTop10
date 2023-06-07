@@ -29,8 +29,6 @@ app.use(cors(corsOptions))
 // Add Security for common vulnerabilities
 app.use(helmet())
 
-app.use('/api', [placesRouters, countriesRouters, citiesRouters, categoriesRouters])
-
 // Obtaining env variables for the connection
 const PORT = process.env.PORT ?? 3500
 const USER = process.env.DATABASE_USER ?? 'default'
@@ -47,6 +45,9 @@ mongoose.connect(connectionString)
   .catch((error: Error) => {
     console.log(`Failed to connect to MongoDB ${error.message}`)
   })
+
+// consuming the routers
+app.use('/api', [placesRouters, countriesRouters, citiesRouters, categoriesRouters])
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
