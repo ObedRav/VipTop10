@@ -1,10 +1,107 @@
 [
-    { "name" : "Bakery" },
-    { "name" : "Bar" },
-    { "name" : "Cafe" },
-    { "name" : "Meal Takeaway" },
-    { "name" : "Restaurant" },
-    { "name": "Food"}
-
-
+    {
+        "name": "Car Rental"
+    },
+    {
+        "name": "Tourist Attraction"
+    },
+    {
+        "name": "Entertainment"
+    },
+    {
+        "name": "Amusement Park"
+    },
+    {
+        "name": "Bowling Alley"
+    },
+    {
+        "name": "Casino"
+    },
+    {
+        "name": "Movie Theater"
+    },
+    {
+        "name": "Night Club"
+    },
+    {
+        "name": "Stadium"
+    },
+    {
+        "name": "Aquaparks"
+    },
+    {
+        "name": "Attractions"
+    },
+    {
+        "name": "Art Gallery"
+    },
+    {
+        "name": "Museum"
+    },
+    {
+        "name": "Food"
+    },
+    {
+        "name": "Bakery"
+    },
+    {
+        "name": "Bar"
+    },
+    {
+        "name": "Cafe"
+    },
+    {
+        "name": "Meal Takeaway"
+    },
+    {
+        "name": "Restaurant"
+    },
+    {
+        "name": "Health & Beauty"
+    },
+    {
+        "name": "Beauty Salon"
+    },
+    {
+        "name": "Hair Care"
+    },
+    {
+        "name": "Pharmacy"
+    },
+    {
+        "name": "Spa"
+    },
+    {
+        "name": "Shopping"
+    },
+    {
+        "name": "Book Store"
+    },
+    {
+        "name": "Clothing Store"
+    },
+    {
+        "name": "Convenience Store"
+    },
+    {
+        "name": "Department Store"
+    },
+    {
+        "name": "Electronics Store"
+    },
+    {
+        "name": "Jewelry Store"
+    },
+    {
+        "name": "Liquor Store"
+    },
+    {
+        "name": "Pet Store"
+    },
+    {
+        "name": "Shoe Store"
+    },
+    {
+        "name": "Shopping Mall"
+    }
 ]
