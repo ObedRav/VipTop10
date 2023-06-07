@@ -1,4 +1,6 @@
+import mongoose from 'mongoose'
 import Category from '../models/Category'
+import { connectDatabase } from '../database'
 
 export async function getCategories (): Promise<string[]> {
   const maxRetries = 3 // Maximum number of retry attempts
@@ -8,6 +10,14 @@ export async function getCategories (): Promise<string[]> {
 
   while (retryCount < maxRetries) {
     try {
+      // Check if the database connection is established
+      if (mongoose.connection.readyState !== 1) {
+        // Attempt to reconnect to the database
+        connectDatabase()
+          .then(() => console.log('Database connected from Categories'))
+          .catch((err: Error) => console.error(`There was an error calling the function to connect to database: ${err.message}`))
+      }
+
       const categories = await Category.find({}, 'name')
       const categoryNames = categories.map((category) => category.name)
 

@@ -1,6 +1,4 @@
 import express from 'express'
-import mongoose from 'mongoose'
-import dotenv from 'dotenv'
 import cors from 'cors'
 import helmet from 'helmet'
 // import routers
@@ -8,13 +6,12 @@ import placesRouters from './routes/placesRouters'
 import countriesRouters from './routes/countriesRouters'
 import citiesRouters from './routes/citiesRouters'
 import categoriesRouters from './routes/categoriesRouters'
+// databaseConnection
+import { connectDatabase } from './database'
 
 const app = express()
 
 app.use(express.json())
-
-// Load the env variables
-dotenv.config()
 
 // Config CORS
 const corsOptions = {
@@ -29,22 +26,13 @@ app.use(cors(corsOptions))
 // Add Security for common vulnerabilities
 app.use(helmet())
 
-// Obtaining env variables for the connection
+// Obtaining env variables
 const PORT = process.env.PORT ?? 3500
-const USER = process.env.DATABASE_USER ?? 'default'
-const PASSWORD = process.env.DATABASE_PASSWORD ?? 'default'
 
-// String connection
-const connectionString = `mongodb+srv://${USER}:${PASSWORD}@top10.6oki5fv.mongodb.net/?retryWrites=true&w=majority`
-
-// Connect to the database
-mongoose.connect(connectionString)
-  .then(() => {
-    console.log('Connected to MongoDB Atlas')
-  })
-  .catch((error: Error) => {
-    console.log(`Failed to connect to MongoDB ${error.message}`)
-  })
+// Connection to database
+connectDatabase()
+  .then(() => console.log('Database connected from Index'))
+  .catch((err: Error) => console.error(`There was an error calling the function to connect to database: ${err.message}`))
 
 // consuming the routers
 app.use('/api', [placesRouters, countriesRouters, citiesRouters, categoriesRouters])
