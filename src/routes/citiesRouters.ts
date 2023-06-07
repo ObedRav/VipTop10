@@ -12,7 +12,7 @@ router.post('/cities', validateCountry, (req, res) => {
       res.json(filteredCities)
     })
     .catch((err: Error) => {
-      console.log(err.message)
+      console.error(err.message)
       res.status(500).json({ error: 'There was an error, try again in some minutes' })
     })
 })
