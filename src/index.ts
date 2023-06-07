@@ -1,12 +1,13 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import cors from 'cors'
+import helmet from 'helmet'
+// import routers
 import placesRouters from './routes/placesRouters'
 import countriesRouters from './routes/countriesRouters'
 import citiesRouters from './routes/citiesRouters'
 import categoriesRouters from './routes/categoriesRouters'
-import cors from 'cors'
-import helmet from 'helmet'
 
 const app = express()
 
