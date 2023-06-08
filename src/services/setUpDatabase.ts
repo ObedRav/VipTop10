@@ -36,7 +36,7 @@ async function createCountries (): Promise<Country[]> {
 }
 
 // Create the cities
-async function createCities (categories: Category[], countries: Country[]): Promise<undefined> {
+async function createCities (categories: Category[], countries: Country[]): Promise<void> {
   try {
     const cities = citiesData.map((city: any) => {
       // loading the country
@@ -54,8 +54,6 @@ async function createCities (categories: Category[], countries: Country[]): Prom
 
     await CityModel.insertMany(cities)
     console.log('Cities created successfully')
-
-    return undefined
   } catch (error) {
     console.error('Error creating cities:', error)
     throw error
@@ -63,7 +61,7 @@ async function createCities (categories: Category[], countries: Country[]): Prom
 }
 
 // function to create data
-export async function createData (): Promise<any> {
+export async function createData (): Promise<void> {
   try {
     // Create categories
     const categories = await createCategories()
@@ -73,8 +71,6 @@ export async function createData (): Promise<any> {
 
     // Create cities
     await createCities(categories, countries)
-
-    return undefined
   } catch (error) {
     console.error('Error creating data:', error)
   }
