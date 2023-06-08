@@ -3,12 +3,6 @@
         "name": "Car Rental"
     },
     {
-        "name": "Tourist Attraction"
-    },
-    {
-        "name": "Entertainment"
-    },
-    {
         "name": "Amusement Park"
     },
     {
@@ -27,19 +21,10 @@
         "name": "Stadium"
     },
     {
-        "name": "Aquaparks"
-    },
-    {
-        "name": "Attractions"
-    },
-    {
         "name": "Art Gallery"
     },
     {
         "name": "Museum"
-    },
-    {
-        "name": "Food"
     },
     {
         "name": "Bakery"
@@ -57,9 +42,6 @@
         "name": "Restaurant"
     },
     {
-        "name": "Health & Beauty"
-    },
-    {
         "name": "Beauty Salon"
     },
     {
@@ -72,9 +54,6 @@
         "name": "Spa"
     },
     {
-        "name": "Shopping"
-    },
-    {
         "name": "Book Store"
     },
     {
@@ -84,9 +63,6 @@
         "name": "Convenience Store"
     },
     {
-        "name": "Department Store"
-    },
-    {
         "name": "Electronics Store"
     },
     {
@@ -94,9 +70,6 @@
     },
     {
         "name": "Liquor Store"
-    },
-    {
-        "name": "Pet Store"
     },
     {
         "name": "Shoe Store"

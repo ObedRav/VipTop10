@@ -64,15 +64,31 @@ async function createCities (categories: Category[], countries: Country[]): Prom
   }
 }
 
-export async function createPlaces (cities: City[]): Promise<void> {
+async function createPlaces (cities: City[]): Promise<void> {
   try {
     for (const city of cities) {
-      for (const category of city.categories) {
-        const searchString: string = `Top 10 ${category.name} near ${city.name} ${city.country.name}`
+      // Get Country
+      const country: Country | null = await CountryModel.findById(city.country)
+      if (country == null) { // Check country
+        console.warn("Country doesn't exist")
+        continue
+      }
 
+      for (const categoryId of city.categories) {
+        // Get Category
+        const category: Category | null = await CategoryModel.findById(categoryId)
+        if (category == null) { // Check Category
+          console.warn("Category doesn't exist")
+          continue
+        }
+
+        const searchString: string = `Top 10 ${category.name} near ${city.name} ${country.name}`
+
+        // Making the peticion to the maps API
         const response = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${searchString}&key=${API_KEY}`)
         const data = await response.json()
 
+        // Parsing the info
         const places: Place = data.results.slice(0, 10).map((result: GooglePlaceResult) => {
           const place = {
             category: category._id,
@@ -82,8 +98,6 @@ export async function createPlaces (cities: City[]): Promise<void> {
             coordinates: `${result.geometry.location.lat},${result.geometry.location.lng}`,
             rating: result.rating ?? 0,
             address: result.formatted_address ?? '',
-            openHours: result.opening_hours?.weekday_text ?? [],
-            contact: result.formatted_phone_number ?? '',
             description: result.types?.join(', ') ?? '',
             image: result.photos?.[0].photo_reference ?? ''
           }

@@ -31,8 +31,6 @@ export interface Place extends Document {
   coordinates: string
   rating: number
   address: string
-  openHours: string[]
-  contact: string
   description: string
   image: string
 }
@@ -47,10 +45,6 @@ export interface GooglePlaceResult {
   }
   rating?: number
   formatted_address?: string
-  opening_hours?: {
-    weekday_text: string[]
-  }
-  formatted_phone_number?: string
   types?: string[]
   photos?: Array<{
     photo_reference: string

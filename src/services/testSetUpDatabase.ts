@@ -72,6 +72,7 @@ async function createPlaces (cities: City[]): Promise<void> {
         console.warn("Country doesn't exist")
         continue
       }
+
       for (const categoryId of city.categories) {
         const category: Category | null = await CategoryModel.findById(categoryId)
         if (category == null) {
@@ -93,8 +94,6 @@ async function createPlaces (cities: City[]): Promise<void> {
             coordinates: `${result.geometry.location.lat},${result.geometry.location.lng}`,
             rating: result.rating ?? 0,
             address: result.formatted_address ?? '',
-            openHours: result.opening_hours?.weekday_text ?? [],
-            contact: result.formatted_phone_number ?? '',
             description: result.types?.join(', ') ?? '',
             image: result.photos?.[0].photo_reference ?? ''
           }
