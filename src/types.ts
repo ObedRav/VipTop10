@@ -10,7 +10,7 @@ export interface Category extends Document {
   name: string
 }
 
-export interface City {
+export interface City extends Document {
   name: string
   country: mongoose.Types.ObjectId
   coordinates: string
@@ -31,8 +31,28 @@ export interface Place extends Document {
   coordinates: string
   rating: number
   address: string
-  openHours: string
+  openHours: string[]
   contact: string
   description: string
   image: string
+}
+
+export interface GooglePlaceResult {
+  name: string
+  geometry: {
+    location: {
+      lat: number
+      lng: number
+    }
+  }
+  rating?: number
+  formatted_address?: string
+  opening_hours?: {
+    weekday_text: string[]
+  }
+  formatted_phone_number?: string
+  types?: string[]
+  photos?: Array<{
+    photo_reference: string
+  }>
 }

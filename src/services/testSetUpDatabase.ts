@@ -8,7 +8,7 @@ import { Country, Category, City, Place, GooglePlaceResult } from '../types'
 // import the whole data
 import categoriesData from './JSONs/categories.json'
 import countriesData from './JSONs/countries.json'
-import citiesData from './JSONs/cities.json'
+import citiesData from './JSONs/citiesTest.json'
 
 const API_KEY = process.env.API_KEY_GOOGLE_MAPS ?? 'default'
 
@@ -64,11 +64,22 @@ async function createCities (categories: Category[], countries: Country[]): Prom
   }
 }
 
-export async function createPlaces (cities: City[]): Promise<void> {
+async function createPlaces (cities: City[]): Promise<void> {
   try {
     for (const city of cities) {
-      for (const category of city.categories) {
-        const searchString: string = `Top 10 ${category.name} near ${city.name} ${city.country.name}`
+      const country: Country | null = await CountryModel.findById(city.country)
+      if (country == null) {
+        console.warn("Country doesn't exist")
+        continue
+      }
+      for (const categoryId of city.categories) {
+        const category: Category | null = await CategoryModel.findById(categoryId)
+        if (category == null) {
+          console.warn("Category doesn't exist")
+          continue
+        }
+
+        const searchString: string = `Top 10 ${category.name} near ${city.name} ${country.name}`
 
         const response = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${searchString}&key=${API_KEY}`)
         const data = await response.json()

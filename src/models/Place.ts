@@ -15,7 +15,7 @@ const placeSchema = new Schema<Place>({
   coordinates: { type: String, required: true },
   rating: { type: Number, required: true },
   address: { type: String, required: false },
-  openHours: { type: String, required: false },
+  openHours: [{ type: String, required: false }],
   contact: { type: String, required: false },
   description: { type: String, required: true },
   image: { type: String, required: false }
