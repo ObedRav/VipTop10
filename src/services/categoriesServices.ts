@@ -1,10 +1,10 @@
 import Category from '../models/Category'
-import { connectToDatabaseWithRetry } from '../database'
+import { checkDatabase } from '../database'
 
 export async function getCategories (): Promise<string[]> {
   try {
     // Checking database connection
-    await connectToDatabaseWithRetry(2)
+    await checkDatabase()
 
     const categories = await Category.find({}, 'name')
     const categoryNames = categories.map((category) => category.name)

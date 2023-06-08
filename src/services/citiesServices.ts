@@ -1,11 +1,11 @@
 import * as countriesService from './countriesServices'
-import { connectToDatabaseWithRetry } from '../database'
+import { checkDatabase } from '../database'
 import City from '../models/City'
 
 export async function getCitiesByCountry (country: string): Promise<any> {
   try {
     // Checking database connection
-    await connectToDatabaseWithRetry(2)
+    await checkDatabase()
 
     const countryId = await countriesService.getCountryByName(country)
     const cities = await City.find({ country: countryId }, 'name country')
