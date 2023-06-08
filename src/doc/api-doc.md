@@ -20,10 +20,13 @@ Public page of VIPTOP10.COM
 ## API Endpoints
 | HTTP Verbs | Endpoints                             | Action                                                               |
 | ---------- | ------------------------------------- | -------------------------------------------------------------------- |
-| GET        | /country                              | Get the list of all countries                                        |
-| GET        | /city                                 | Get the list of all cities                                           |
-| GET        | /places                               | Get the list of all places                                           |
-| POST       | /places/{id}                          | Get the information of a palce searching by id                       |
+| GET        | /countries                              | Get the list of all countries                                        |
+| POST       | /cities                                 | Get the list of all cities of selected country                              |
+| GET        | /categories                               | Get the list of all catergories                                           |
+| GET        | /categories/recomms                          | Get the 6 list of recommended catergories                        |
+| POST       | /places                               | Get the top 10 places filtered by city and category                                       |
+| GET        | /places/recomms                               | Get the 6 list of recommended places                                           |
+| GET        | /places/(id)                          | Get the information of a palce searching by id                       |
 
 
 ## Response Example 
