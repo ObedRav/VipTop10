@@ -23,3 +23,23 @@ export async function connectDatabase (): Promise<any> {
       return false
     })
 }
+
+async function connectToDatabaseWithRetry (retryCount: number): Promise<void> {
+  try {
+    // Attempt to connect to the database
+    await connectDatabase()
+    console.log('Database connected from Categories')
+  } catch (error) {
+    console.error(`There was an error calling the function to connect to the database: ${error.message}`)
+    if (retryCount > 0) {
+      // Retry after a certain delay (e.g., 10 seconds)
+      console.log('Retrying connection in 10 seconds...')
+      await delay(10000) // Delay function to wait for 10 seconds
+      await connectToDatabaseWithRetry(retryCount - 1) // Recursive call with decreased retry count
+    } else {
+      console.error('Failed to connect to the database after retries.')
+      // Handle the failed connection attempt
+      // You can throw an error or handle it in any other way that suits your application's needs
+    }
+  }
+}
