@@ -37,19 +37,6 @@ export interface Place extends Document {
   requests: number
 }
 
-export interface PlaceObject {
-  category: string
-  city: string
-  country: string
-  name: string
-  coordinates: string
-  rating: number
-  address: string
-  description: string
-  image: string
-  requests: number
-}
-
 export interface GooglePlaceResult {
   name: string
   geometry: {
