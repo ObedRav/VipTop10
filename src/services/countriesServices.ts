@@ -13,3 +13,17 @@ export async function getCountryByName (countryName: string): Promise<any> {
     throw new Error('Failed to fetch country - countriesServices/getCountryByName')
   }
 }
+
+export async function getCountries (): Promise<string[]> {
+  try {
+    // Checking database connection
+    await checkDatabase()
+
+    const countries = await Country.find({}, 'name')
+    const contriesNames = countries.map((country) => country.name)
+
+    return contriesNames
+  } catch (error) {
+    throw new Error('Failed to fetch countries')
+  }
+}
