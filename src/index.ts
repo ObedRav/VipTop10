@@ -8,6 +8,8 @@ import citiesRouters from './routes/citiesRouters'
 import categoriesRouters from './routes/categoriesRouters'
 // databaseConnection
 import { connectDatabase } from './database'
+// schedule data creation
+import { scheduleDataCreation } from './services/dataScheduler'
 
 const app = express()
 
@@ -36,6 +38,11 @@ connectDatabase()
 
 // consuming the routers
 app.use('/api', [placesRouters, countriesRouters, citiesRouters, categoriesRouters])
+
+// Call the function to schedule data creation
+scheduleDataCreation()
+  .then(() => console.log('The scheduleDataCreation was called'))
+  .catch(() => console.log('Data creation failed'))
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
