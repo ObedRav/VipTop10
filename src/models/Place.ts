@@ -16,7 +16,8 @@ const placeSchema = new Schema<Place>({
   rating: { type: Number, required: true },
   address: { type: String, required: false },
   description: { type: String, required: true },
-  image: { type: String, required: false }
+  image: { type: String, required: false },
+  requests: { type: Number, default: 0 }
 })
 
 export default mongoose.model<Place>('Place', placeSchema)

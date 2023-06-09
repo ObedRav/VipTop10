@@ -9,7 +9,7 @@ const USER = process.env.DATABASE_USER ?? 'default'
 const PASSWORD = process.env.DATABASE_PASSWORD ?? 'default'
 
 // String connection
-const connectionString = `mongodb+srv://${USER}:${PASSWORD}@top10.6oki5fv.mongodb.net/?retryWrites=true&w=majority`
+const connectionString = `mongodb+srv://${USER}:${PASSWORD}@top10.6oki5fv.mongodb.net/top10?retryWrites=true&w=majority`
 
 // Connect to the database
 export async function connectDatabase (): Promise<void> {

@@ -10,14 +10,19 @@ router.get('/categories', (_req, res) => {
     })
     .catch((err: Error) => {
       console.error(err.message)
-      res.status(500).json({ error: 'There was an error, try again in some minutes' })
+      res.status(500).json({ error: 'There was an error retrieving the categories, try again in some minutes' })
     })
 })
 
 router.get('/categories/recomms', (_req, res) => {
-  // To do
-  // Router that returns 3 recommeded categories
-  res.send('Recommeded Categories!')
+  categoriesServices.getRecommsCategories()
+    .then((categories) => {
+      res.json(categories)
+    })
+    .catch((err: Error) => {
+      console.error(err.message)
+      res.status(500).json({ error: 'There was an error retrieving the recomms categories, try again in some minutes' })
+    })
 })
 
 export default router

@@ -86,6 +86,7 @@ async function createPlaces (cities: City[]): Promise<void> {
 
         // Making the peticion to the maps API
         const response = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${searchString}&key=${API_KEY}`)
+        console.log('Fetch completed')
         const data = await response.json()
 
         // Parsing the info
@@ -107,6 +108,7 @@ async function createPlaces (cities: City[]): Promise<void> {
 
         // Save the places to the database
         await PlaceModel.insertMany(places)
+        console.log('Category and city places created')
       }
     }
 

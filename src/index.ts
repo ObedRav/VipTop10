@@ -8,7 +8,6 @@ import citiesRouters from './routes/citiesRouters'
 import categoriesRouters from './routes/categoriesRouters'
 // databaseConnection
 import { connectDatabase } from './database'
-import { createData } from './services/testSetUpDatabase'
 
 const app = express()
 
@@ -34,10 +33,6 @@ const PORT = process.env.PORT ?? 3500
 connectDatabase()
   .then(() => console.log('Database connected from Index'))
   .catch((err: Error) => console.error(`There was an error calling the function to connect to database: ${err.message}`))
-
-createData()
-  .then(() => console.log('Data created'))
-  .catch((err) => console.log(err))
 
 // consuming the routers
 app.use('/api', [placesRouters, countriesRouters, citiesRouters, categoriesRouters])

@@ -8,6 +8,7 @@ export enum Countries {
 
 export interface Category extends Document {
   name: string
+  requests: number
 }
 
 export interface City extends Document {
@@ -33,6 +34,20 @@ export interface Place extends Document {
   address: string
   description: string
   image: string
+  requests: number
+}
+
+export interface PlaceObject {
+  category: string
+  city: string
+  country: string
+  name: string
+  coordinates: string
+  rating: number
+  address: string
+  description: string
+  image: string
+  requests: number
 }
 
 export interface GooglePlaceResult {
