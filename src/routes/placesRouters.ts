@@ -1,5 +1,6 @@
 import express from 'express'
 import * as placesServices from '../services/placesServices'
+import { StatusCodes } from 'http-status-codes'
 
 const router = express.Router()
 
@@ -10,7 +11,7 @@ router.get('/places/recomms', (_req, res) => {
     })
     .catch((err: Error) => {
       console.error(err.message)
-      res.status(500).json({ error: 'There was an error retrieving the recomms places, try again in some minutes' })
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the recomms places, try again in some minutes' })
     })
 })
 

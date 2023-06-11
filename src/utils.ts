@@ -1,5 +1,6 @@
 import express from 'express'
 import { Countries } from './types'
+import { StatusCodes } from 'http-status-codes'
 
 /**
  * This function validates if a given country is valid or not.
@@ -10,11 +11,11 @@ export function validateCountry (req: express.Request, res: express.Response, ne
   const { country } = req.body
 
   if (country == null) {
-    return res.status(400).json({ error: 'Country is required' })
+    return res.status(StatusCodes.BAD_REQUEST).json({ error: 'Country is required' })
   }
 
   if (!Object.values(Countries).includes(country)) {
-    return res.status(400).json({ error: 'Invalid country' })
+    return res.status(StatusCodes.BAD_REQUEST).json({ error: 'Invalid country' })
   }
 
   next()
