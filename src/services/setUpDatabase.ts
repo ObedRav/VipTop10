@@ -12,7 +12,12 @@ import citiesData from './JSONs/cities.json'
 
 const API_KEY = process.env.API_KEY_GOOGLE_MAPS ?? 'default'
 
-// Create Categories
+/**
+ * This function creates categories by inserting data into a CategoryModel and returns the created
+ * categories as a Promise.
+ * @returns The function `createCategories` returns a Promise that resolves to an array of `Category`
+ * objects.
+ */
 async function createCategories (): Promise<Category[]> {
   try {
     const categories = await CategoryModel.insertMany(categoriesData as Category[])
@@ -25,7 +30,12 @@ async function createCategories (): Promise<Category[]> {
   }
 }
 
-// Create Countries
+/**
+ * This function creates countries by inserting data into a CountryModel and returns a Promise of an
+ * array of Country objects.
+ * @returns The function `createCountries` returns a Promise that resolves to an array of `Country`
+ * objects.
+ */
 async function createCountries (): Promise<Country[]> {
   try {
     const countries = await CountryModel.insertMany(countriesData as Country[])
@@ -38,7 +48,15 @@ async function createCountries (): Promise<Country[]> {
   }
 }
 
-// Create the cities
+/**
+ * This is an asynchronous function that creates cities by mapping through citiesData and finding the
+ * corresponding country and categories, then inserting the cities into the CityModel and returning the
+ * list of created cities.
+ * @param {Category[]} categories - An array of Category objects.
+ * @param {Country[]} countries - An array of objects representing countries, where each object has a
+ * "name" property.
+ * @returns a Promise that resolves to an array of City objects.
+ */
 async function createCities (categories: Category[], countries: Country[]): Promise<City[]> {
   try {
     const cities = citiesData.map((city: any) => {
@@ -64,6 +82,11 @@ async function createCities (categories: Category[], countries: Country[]): Prom
   }
 }
 
+/**
+ * This function creates places based on categories and cities by making a request to the Google Maps
+ * API and saving the results to a database.
+ * @param {City[]} cities - The `cities` parameter is an array of `City` objects.
+ */
 async function createPlaces (cities: City[]): Promise<void> {
   try {
     for (const city of cities) {
@@ -119,7 +142,9 @@ async function createPlaces (cities: City[]): Promise<void> {
   }
 }
 
-// function to create data
+/**
+ * This function creates data by creating categories, countries, cities, and places.
+ */
 export async function createData (): Promise<void> {
   try {
     // Create categories

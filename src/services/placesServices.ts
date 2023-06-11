@@ -5,6 +5,13 @@ import CityModel from '../models/City'
 import { checkDatabase } from '../database'
 import { Category, Country, City } from '../types'
 
+/**
+ * This function retrieves recommended places from a database and transforms the data before returning
+ * it.
+ * @returns an array of recommended places. Each place object in the array contains information such as
+ * the category, city, country, name, coordinates, rating, address, description, image, and number of
+ * requests.
+ */
 export async function getRecommsPlaces (): Promise<any> {
   try {
     // Checking database connection

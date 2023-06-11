@@ -7,7 +7,9 @@ import CityModel from '../models/City'
 import { createData } from './setUpDatabase'
 import { checkDatabase } from '../database'
 
-// Function to clear the database
+/**
+ * This function clears multiple collections in a database and logs the success of each operation.
+ */
 async function clearDatabase (): Promise<void> {
   try {
     // Clear the categories collection
@@ -31,9 +33,13 @@ async function clearDatabase (): Promise<void> {
   }
 }
 
-// Function to schedule the data creation
+/**
+ * This function schedules a job to run every month on the 1st at midnight, which checks the database
+ * connection, clears the database, creates new data, and logs a success message or an error message.
+ */
 export async function scheduleDataCreation (): Promise<void> {
   // Schedule the job to run every month on the 1st at 00:00 (midnight)
+  // eslint-disable-next-line @typescript-eslint/no-misused-promises
   cron.schedule('0 0 1 * *', async () => {
     try {
       // Check database connection
