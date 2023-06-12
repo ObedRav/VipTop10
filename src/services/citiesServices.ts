@@ -1,6 +1,7 @@
 import * as countriesService from './countriesServices'
 import { checkDatabase } from '../database'
-import City from '../models/City'
+import CityModel from '../models/City'
+import { City } from '../types'
 
 /**
  * This function retrieves the names of cities in a given country from a database.
@@ -11,15 +12,15 @@ import City from '../models/City'
  * representing the names of cities in the specified country. If there is an error, it throws an error
  * message.
  */
-export async function getCitiesByCountry (country: string): Promise<string[]> {
+export async function getCitiesByCountry (country: string): Promise<City[]> {
   try {
     // Checking database connection
     await checkDatabase()
 
     const countryId = await countriesService.getCountryByName(country)
-    const cities = await City.find({ country: countryId }, 'name country')
+    const cities = await CityModel.find({ country: countryId }, 'name')
 
-    return cities.map((city) => city.name)
+    return cities
   } catch (err: any) {
     console.error(err.message)
     throw new Error('Failed to fetch cities - citiesServices/getCitiesByCountry')

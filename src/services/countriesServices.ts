@@ -1,5 +1,6 @@
 import { checkDatabase } from '../database'
-import Country from '../models/Country'
+import CountryModel from '../models/Country'
+import { Country } from '../types'
 
 /**
  * This function retrieves the ID of a country from a database based on its name.
@@ -10,13 +11,13 @@ import Country from '../models/Country'
  * matching country is found, it will return `undefined`. The return value is wrapped in a Promise that
  * resolves to a string.
  */
-export async function getCountryByName (countryName: string): Promise<string> {
+export async function getCountryByName (countryName: string): Promise<string | null> {
   try {
     // Checking database connection
     await checkDatabase()
 
-    const country = await Country.findOne({ name: countryName })
-    return country?._id
+    const country: string | null = await CountryModel.findOne({ name: countryName }, '_id')
+    return country
   } catch (error: any) {
     console.error(error.message)
     throw new Error('Failed to fetch country - countriesServices/getCountryByName')
@@ -29,15 +30,14 @@ export async function getCountryByName (countryName: string): Promise<string> {
  * representing the names of all countries in the database. If there is an error while fetching the
  * countries, the function throws an error with the message "Failed to fetch countries".
  */
-export async function getCountries (): Promise<string[]> {
+export async function getCountries (): Promise<Country[]> {
   try {
     // Checking database connection
     await checkDatabase()
 
-    const countries = await Country.find({}, 'name')
-    const contriesNames = countries.map((country) => country.name)
+    const countries: Country[] = await CountryModel.find({}, 'name')
 
-    return contriesNames
+    return countries
   } catch (error) {
     throw new Error('Failed to fetch countries')
   }
