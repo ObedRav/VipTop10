@@ -26,6 +26,15 @@ export async function getRecommsPlaces (): Promise<any> {
   }
 }
 
+/**
+ * This function retrieves a place by its ID from a database, increments its request count, transforms
+ * it, and returns it.
+ * @param {string} ID - The ID parameter is a string that represents the unique identifier of a place
+ * in the database.
+ * @returns a Promise that resolves to an object representing a place, with its properties transformed,
+ * if the place is found in the database and updated successfully. If the place is not found, an error
+ * is thrown. If there is an error retrieving the place, an error is thrown as well.
+ */
 export async function getPlaceById (ID: string): Promise<any> {
   try {
     // Checking database connection
@@ -48,6 +57,17 @@ export async function getPlaceById (ID: string): Promise<any> {
   }
 }
 
+/**
+ * This is an asynchronous function that transforms an array of places by retrieving additional
+ * information about each place's country, category, and city.
+ * @param {any} places - an array or object containing information about places, including their IDs,
+ * categories, cities, countries, names, coordinates, ratings, addresses, descriptions, images, and
+ * requests.
+ * @returns The `transformPlaces` function returns a Promise that resolves to an array of transformed
+ * places if the input `places` is an array, or a single transformed place object if the input `places`
+ * is not an array. The transformed place object(s) contain information about the place's category,
+ * city, country, name, coordinates, rating, address, description, image, and requests.
+ */
 async function transformPlaces (places: any): Promise<any> {
   const isArray = Array.isArray(places)
   const placesArray = isArray ? places : [places]
