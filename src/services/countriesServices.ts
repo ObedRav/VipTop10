@@ -25,10 +25,11 @@ export async function getCountryByName (countryName: string): Promise<string | n
 }
 
 /**
- * This function fetches the names of all countries from a database.
- * @returns The function `getCountries` returns a Promise that resolves to an array of strings
- * representing the names of all countries in the database. If there is an error while fetching the
- * countries, the function throws an error with the message "Failed to fetch countries".
+ * This function fetches all countries from a database and returns their names as an array of Country
+ * objects.
+ * @returns The function `getCountries` returns a promise that resolves to an array of `Country`
+ * objects. The `Country` objects contain a `name` property. If there is an error, the function throws
+ * an error with the message "Failed to fetch countries".
  */
 export async function getCountries (): Promise<Country[]> {
   try {
