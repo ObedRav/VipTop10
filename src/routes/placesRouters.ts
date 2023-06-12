@@ -23,13 +23,27 @@ router.post('/places', (_req, res) => {
 
 router.get('/places/:id', (req, res) => {
   const id = req.params.id
+
   placesServices.getPlaceById(id)
     .then((place) => {
       res.json(place)
     })
     .catch((err: Error) => {
       console.error(err.message)
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the recomms places, try again in some minutes' })
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the place, try again in some minutes' })
+    })
+})
+
+router.get('/places/category/:categoryid', (req, res) => {
+  const id = req.params.categoryid
+
+  placesServices.getPlacesByCategory(id)
+    .then((places) => {
+      res.json(places)
+    })
+    .catch((err: Error) => {
+      console.error(err.message)
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the places by category, try again in some minutes' })
     })
 })
 

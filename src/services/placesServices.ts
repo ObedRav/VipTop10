@@ -58,6 +58,33 @@ export async function getPlaceById (ID: string): Promise<Place> {
 }
 
 /**
+ * This function retrieves places from a database based on a given category ID and returns them in a
+ * sorted and transformed format.
+ * @param {string} categoryId - string parameter representing the ID of the category for which the
+ * places are being retrieved.
+ * @returns a Promise that resolves to an array of Place objects that belong to the category specified
+ * by the categoryId parameter. The places are sorted in descending order based on the number of
+ * requests they have received. The function also transforms the retrieved places using the
+ * transformPlaces function before returning them. If an error occurs, the function throws an error
+ * with the message "Error retrieving places by category".
+ */
+export async function getPlacesByCategory (categoryId: string): Promise<Place[]> {
+  try {
+    // Checking database connection
+    await checkDatabase()
+
+    const places: Place[] = await PlaceModel.find({ category: categoryId }).sort({ requests: -1 })
+
+    const transformedPlaces = await transformPlaces(places)
+
+    return transformedPlaces
+  } catch (error) {
+    console.error(error)
+    throw new Error('Error retrieving places by category')
+  }
+}
+
+/**
  * This is an asynchronous function that transforms an array of places by retrieving additional
  * information about each place's country, category, and city.
  * @param {any} places - an array or object containing information about places, including their IDs,
