@@ -21,10 +21,16 @@ router.post('/places', (_req, res) => {
   res.send('Places filters by city and category!')
 })
 
-router.get('/places/:id', (_req, res) => {
-  // To do
-  // Router that returns a specific place
-  res.send('Place with a specific ID!')
+router.get('/places/:id', (req, res) => {
+  const id = req.params.id
+  placesServices.getPlaceById(id)
+    .then((place) => {
+      res.json(place)
+    })
+    .catch((err: Error) => {
+      console.error(err.message)
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the recomms places, try again in some minutes' })
+    })
 })
 
 export default router
