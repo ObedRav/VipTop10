@@ -6,11 +6,8 @@ import { checkDatabase } from '../database'
 import { Category, Country, City, Place } from '../types'
 
 /**
- * This function retrieves recommended places from a database and transforms the data before returning
- * it.
- * @returns an array of recommended places. Each place object in the array contains information such as
- * the category, city, country, name, coordinates, rating, address, description, image, and number of
- * requests.
+ * This function retrieves recommended places from a database and returns them as a transformed array.
+ * @returns a Promise that resolves to an array of Place objects.
  */
 export async function getRecommsPlaces (): Promise<Place[]> {
   try {
@@ -85,15 +82,14 @@ export async function getPlacesByCategory (categoryId: string): Promise<Place[]>
 }
 
 /**
- * This is an asynchronous function that transforms an array of places by retrieving additional
- * information about each place's country, category, and city.
- * @param {any} places - an array or object containing information about places, including their IDs,
- * categories, cities, countries, names, coordinates, ratings, addresses, descriptions, images, and
- * requests.
+ * The function transforms a Place or an array of Places by populating their country, category, and
+ * city fields with their respective names.
+ * @param {Place | Place[]} places - The parameter `places` can be either a single `Place` object or an
+ * array of `Place` objects.
  * @returns The `transformPlaces` function returns a Promise that resolves to an array of transformed
- * places if the input `places` is an array, or a single transformed place object if the input `places`
- * is not an array. The transformed place object(s) contain information about the place's category,
- * city, country, name, coordinates, rating, address, description, image, and requests.
+ * `Place` objects if the input is an array of `Place` objects, or a single transformed `Place` object
+ * if the input is a single `Place` object. The transformed `Place` objects have additional properties
+ * such as the names of the associated `Country`, `Category`, and `City` objects.
  */
 async function transformPlaces (places: Place | Place[]): Promise<any> {
   const isArray = Array.isArray(places)
