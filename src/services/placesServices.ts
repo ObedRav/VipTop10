@@ -12,7 +12,7 @@ import { Category, Country, City, Place } from '../types'
  * the category, city, country, name, coordinates, rating, address, description, image, and number of
  * requests.
  */
-export async function getRecommsPlaces (): Promise<any> {
+export async function getRecommsPlaces (): Promise<Place[]> {
   try {
     // Checking database connection
     await checkDatabase()
@@ -35,7 +35,7 @@ export async function getRecommsPlaces (): Promise<any> {
  * if the place is found in the database and updated successfully. If the place is not found, an error
  * is thrown. If there is an error retrieving the place, an error is thrown as well.
  */
-export async function getPlaceById (ID: string): Promise<any> {
+export async function getPlaceById (ID: string): Promise<Place> {
   try {
     // Checking database connection
     await checkDatabase()
@@ -68,7 +68,7 @@ export async function getPlaceById (ID: string): Promise<any> {
  * is not an array. The transformed place object(s) contain information about the place's category,
  * city, country, name, coordinates, rating, address, description, image, and requests.
  */
-async function transformPlaces (places: any): Promise<any> {
+async function transformPlaces (places: Place | Place[]): Promise<any> {
   const isArray = Array.isArray(places)
   const placesArray = isArray ? places : [places]
 
