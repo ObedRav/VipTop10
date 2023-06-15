@@ -23,7 +23,7 @@ Public page of VIPTOP10.COM
 | GET        | /countries                              | Get the list of all countries                                        |
 | POST       | /cities                                 | Get the list of all cities of selected country                              |
 | GET        | /categories                               | Get the list of all catergories                                           |
-| GET        | /categories/recomms                          | Get the 6 list of recommended catergories                        |
+| GET        | /categories/recomms                          | Get the 3 list of recommended catergories                        |
 | POST       | /places                               | Get the top 10 places filtered by city and category                                       |
 | GET        | /places/recomms                               | Get the 6 list of recommended places                                           |
 | GET        | /places/(id)                          | Get the information of a palce searching by id                       |
@@ -38,7 +38,7 @@ Public page of VIPTOP10.COM
  [{"name": "Colombia","coordinates": "4.5709, -74.2973","continent": "America"},{"name": "Dominican Republic","coordinates": "18.7357, -70.1627","continent":"America"},{"name": "United States","coordinates": "37.0902, -95.7129","continent": "America"}]
  ```
 ## Technologies Used
-* [Microsoft Azure](https://azure.microsoft.com/en-us/resources/cloud-computing-dictionary/what-is-azure/) The Azure cloud platform is more than 200 products and cloud services designed to help you bring new solutions to life—to solve today’s challenges and create the future. Build, run, and manage applications across multiple clouds, on-premises, and at the edge, with the tools and frameworks of your choice.
+* [Node.js](https://nodejs.org/en) As an asynchronous event-driven JavaScript runtime, Node.js is designed to build scalable network applications.
 
 ## Contributors ✨
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
