@@ -82,6 +82,25 @@ export async function getPlacesByCategory (categoryId: string): Promise<Place[]>
 }
 
 /**
+ * This function retrieves places from a database based on a given city
+ */
+export async function getPlacesByCity (cityId: string): Promise<Place[]> {
+  try {
+    // Checking database connection
+    await checkDatabase()
+
+    const places: Place[] = await PlaceModel.find({ city: cityId }).sort({ requests: -1 })
+
+    const transformedPlaces = await transformPlaces(places)
+
+    return transformedPlaces
+  } catch (error) {
+    console.error(error)
+    throw new Error('Error retrieving places by city')
+  }
+}
+
+/**
  * The function transforms a Place or an array of Places by populating their country, category, and
  * city fields with their respective names.
  * @param {Place | Place[]} places - The parameter `places` can be either a single `Place` object or an

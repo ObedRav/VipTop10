@@ -15,10 +15,21 @@ router.get('/places/recomms', (_req, res) => {
     })
 })
 
-router.post('/places', (_req, res) => {
-  // To do
-  // Router that returns places filtering by city and categeory
-  res.send('Places filters by city and category!')
+router.post('/places', (req, res) => {
+  const { city } = req.body
+  const { category } = req.body
+
+  placesServices.getPlacesByCity(city)
+    .then((cityFilteredPlaces) => {
+      placesServices.getPlacesByCategory(category)
+      .then((categoryFilteredPlaces) => {
+        res.json(categoryFilteredPlaces)
+      })
+    })
+    .catch((err: Error) => {
+      console.error(err.message)
+      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the cities, try again in some minutes' })
+    })
 })
 
 router.get('/places/:id', (req, res) => {
