@@ -19,12 +19,9 @@ router.post('/places', (req, res) => {
   const { city } = req.body
   const { category } = req.body
 
-  placesServices.getPlacesByCity(city)
-    .then((cityFilteredPlaces) => {
-      placesServices.getPlacesByCategory(category)
-      .then((categoryFilteredPlaces) => {
-        res.json(categoryFilteredPlaces)
-      })
+  placesServices.getPlacesByCityAndCategory(city, category)
+    .then((categoryFilteredPlaces) => {
+      res.json(categoryFilteredPlaces)
     })
     .catch((err: Error) => {
       console.error(err.message)

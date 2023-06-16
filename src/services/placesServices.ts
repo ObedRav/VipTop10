@@ -82,14 +82,20 @@ export async function getPlacesByCategory (categoryId: string): Promise<Place[]>
 }
 
 /**
- * This function retrieves places from a database based on a given city
+ * This function retrieves places by city and category from a database and transforms them before
+ * returning them as a Promise.
+ * @param {string} cityId - The ID of the city for which you want to retrieve places.
+ * @param {string} categoryId - The categoryId parameter is a string that represents the ID of the
+ * category that is being used to filter the places.
+ * @returns a Promise that resolves to an array of transformed Place objects that match the given
+ * cityId and categoryId. If there is an error, it will throw an error message.
  */
-export async function getPlacesByCity (cityId: string): Promise<Place[]> {
+export async function getPlacesByCityAndCategory (cityId: string, categoryId: string): Promise<Place[]> {
   try {
     // Checking database connection
     await checkDatabase()
 
-    const places: Place[] = await PlaceModel.find({ city: cityId }).sort({ requests: -1 })
+    const places: Place[] = await PlaceModel.find({ city: cityId, category: categoryId })
 
     const transformedPlaces = await transformPlaces(places)
 
