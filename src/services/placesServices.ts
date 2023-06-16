@@ -2,6 +2,8 @@ import PlaceModel from '../models/Place'
 import CategoryModel from '../models/Category'
 import CountryModel from '../models/Country'
 import CityModel from '../models/City'
+import * as categoriesServices from './categoriesServices'
+import * as citiesServices from './citiesServices'
 import { checkDatabase } from '../database'
 import { Category, Country, City, Place } from '../types'
 
@@ -90,10 +92,13 @@ export async function getPlacesByCategory (categoryId: string): Promise<Place[]>
  * @returns a Promise that resolves to an array of transformed Place objects that match the given
  * cityId and categoryId. If there is an error, it will throw an error message.
  */
-export async function getPlacesByCityAndCategory (cityId: string, categoryId: string): Promise<Place[]> {
+export async function getPlacesByCityAndCategory (cityName: string, categoryName: string): Promise<Place[]> {
   try {
     // Checking database connection
     await checkDatabase()
+
+    const cityId = await citiesServices.getCityByName(cityName)
+    const categoryId = await categoriesServices.getCategoryByName(categoryName)
 
     const places: Place[] = await PlaceModel.find({ city: cityId, category: categoryId })
 

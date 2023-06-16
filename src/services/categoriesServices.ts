@@ -40,3 +40,23 @@ export async function getRecommsCategories (): Promise<Category[]> {
     throw new Error('Error retrieving recommended categories')
   }
 }
+
+/**
+ * This function retrieves the ID of a category from the database based on its name.
+ * @param {string} categoryName - The parameter `categoryName` is a string that represents the name of
+ * the category that we want to fetch from the database.
+ * @returns a Promise that resolves to a string or null value. The string value is the ID of the
+ * category that matches the provided category name, or null if no matching category is found.
+ */
+export async function getCategoryByName (categoryName: string): Promise<string | null> {
+  try {
+    // Checking database connection
+    await checkDatabase()
+
+    const country: string | null = await CategoryModel.findOne({ name: categoryName }, '_id')
+    return country
+  } catch (error: any) {
+    console.error(error.message)
+    throw new Error('Failed to fetch country')
+  }
+}
