@@ -57,6 +57,6 @@ export async function getCategoryByName (categoryName: string): Promise<string |
     return country
   } catch (error: any) {
     console.error(error.message)
-    throw new Error('Failed to fetch country')
+    throw new Error('The category doesnt exists')
   }
 }

@@ -46,6 +46,7 @@ export async function getPlaceById (ID: string): Promise<Place> {
       await place.save()
 
       const transformedPlace = await transformPlaces(place)
+
       return transformedPlace
     } else {
       throw new Error('Place not found')
@@ -84,13 +85,12 @@ export async function getPlacesByCategory (categoryId: string): Promise<Place[]>
 }
 
 /**
- * This function retrieves places by city and category from a database and transforms them before
- * returning them as a Promise.
- * @param {string} cityId - The ID of the city for which you want to retrieve places.
- * @param {string} categoryId - The categoryId parameter is a string that represents the ID of the
- * category that is being used to filter the places.
- * @returns a Promise that resolves to an array of transformed Place objects that match the given
- * cityId and categoryId. If there is an error, it will throw an error message.
+ * This function retrieves places by city and category, increments their request count, and returns the
+ * transformed places.
+ * @param {string} cityName - A string representing the name of a city.
+ * @param {string} categoryName - The name of the category that the user wants to search for places in.
+ * @returns a Promise that resolves to an array of transformed Place objects that match the given city
+ * name and category name.
  */
 export async function getPlacesByCityAndCategory (cityName: string, categoryName: string): Promise<Place[]> {
   try {
@@ -104,10 +104,22 @@ export async function getPlacesByCityAndCategory (cityName: string, categoryName
 
     const transformedPlaces = await transformPlaces(places)
 
+    // Increment the request count for places and categories
+    for (const place of places) {
+      place.requests += 1
+      await place.save()
+    }
+
+    const category: Category | null = await CategoryModel.findById(categoryId)
+    if (category != null) {
+      category.requests += 1
+      await category.save()
+    }
+
     return transformedPlaces
   } catch (error) {
     console.error(error)
-    throw new Error('Error retrieving places by city')
+    throw new Error('Error retrieving places by city and category')
   }
 }
 

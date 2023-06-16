@@ -1,6 +1,7 @@
 import express from 'express'
 import * as placesServices from '../services/placesServices'
 import { StatusCodes } from 'http-status-codes'
+import { validateCategory, validateCity } from '../utils'
 
 const router = express.Router()
 
@@ -15,7 +16,7 @@ router.get('/places/recomms', (_req, res) => {
     })
 })
 
-router.post('/places', (req, res) => {
+router.post('/places', validateCity, validateCategory, (req, res) => {
   const { city } = req.body
   const { category } = req.body
 

@@ -44,6 +44,6 @@ export async function getCityByName (cityName: string): Promise<string | null> {
     return country
   } catch (error: any) {
     console.error(error.message)
-    throw new Error('Failed to fetch country')
+    throw new Error('The city doesnt exists')
   }
 }
