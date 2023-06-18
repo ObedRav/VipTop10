@@ -1,6 +1,10 @@
 import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
+import helmetCsp from 'helmet-csp'
+import https from 'https'
+import fs from 'fs'
+import path from 'path'
 // import routers
 import placesRouters from './routes/placesRouters'
 import countriesRouters from './routes/countriesRouters'
@@ -28,6 +32,32 @@ app.use(cors(corsOptions))
 // Add Security for common vulnerabilities
 app.use(helmet())
 
+// Configure CSP
+app.use(
+  helmetCsp({
+    directives: {
+      defaultSrc: ["'none'"],
+      frameAncestors: ["'none'"],
+      formAction: ["'none'"],
+      styleSrc: ["'self'", "'unsafe-inline'"]
+    }
+  })
+)
+
+// Apply cache-control middleware
+app.use((_req, res, next) => {
+  res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate')
+  next()
+})
+
+// Adding secure protocol
+const serverOptions = {
+  key: fs.readFileSync(path.join(__dirname, '../SSL_Certificates/server.key')),
+  cert: fs.readFileSync(path.join(__dirname, '../SSL_Certificates/server.cert'))
+}
+
+const server = https.createServer(serverOptions, app)
+
 // Obtaining env variables
 const PORT = process.env.PORT ?? 3500
 
@@ -44,6 +74,6 @@ scheduleDataCreation()
   .then(() => console.log('The scheduleDataCreation was called'))
   .catch(() => console.log('Data creation failed'))
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
 })
