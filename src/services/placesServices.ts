@@ -73,7 +73,7 @@ export async function getPlacesByCategory (categoryId: string): Promise<Place[]>
     // Checking database connection
     await checkDatabase()
 
-    const places: Place[] = await PlaceModel.find({ category: categoryId }).sort({ requests: -1 })
+    const places: Place[] = await PlaceModel.find({ category: categoryId }).sort({ requests: -1 }).limit(30)
 
     const transformedPlaces = await transformPlaces(places)
 

@@ -10,7 +10,7 @@ router.post('/cities', validateCountry, (req, res) => {
 
   citiesServices.getCitiesByCountry(country)
     .then((filteredCities) => {
-      res.json(filteredCities)
+      res.status(StatusCodes.ACCEPTED).json(filteredCities)
     })
     .catch((err: Error) => {
       console.error(err.message)

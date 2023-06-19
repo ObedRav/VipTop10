@@ -22,7 +22,7 @@ router.post('/places', validateCity, validateCategory, (req, res) => {
 
   placesServices.getPlacesByCityAndCategory(city, category)
     .then((categoryFilteredPlaces) => {
-      res.json(categoryFilteredPlaces)
+      res.status(StatusCodes.ACCEPTED).json(categoryFilteredPlaces)
     })
     .catch((err: Error) => {
       console.error(err.message)
