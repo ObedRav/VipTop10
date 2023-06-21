@@ -2,6 +2,7 @@ import express from 'express'
 import * as placesServices from '../services/placesServices'
 import { StatusCodes } from 'http-status-codes'
 import { validateCategory, validateCity } from '../utils'
+import { IDError } from '../errors'
 
 const router = express.Router()
 
@@ -38,8 +39,13 @@ router.get('/places/:id', (req, res) => {
       res.json(place)
     })
     .catch((err: Error) => {
-      console.error(err.message)
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the place, try again in some minutes' })
+      if (err instanceof IDError) {
+        // Handle specific error for invalid ID
+        res.status(StatusCodes.BAD_REQUEST).json({ error: err.message })
+      } else {
+        console.error(err.message)
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the place, try again in some minutes' })
+      }
     })
 })
 
@@ -51,8 +57,13 @@ router.get('/places/category/:categoryid', (req, res) => {
       res.json(places)
     })
     .catch((err: Error) => {
-      console.error(err.message)
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the places by category, try again in some minutes' })
+      if (err instanceof IDError) {
+        // Handle specific error for invalid ID
+        res.status(StatusCodes.BAD_REQUEST).json({ error: err.message })
+      } else {
+        console.error(err.message)
+        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the places by category, try again in some minutes' })
+      }
     })
 })
 
