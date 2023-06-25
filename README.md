@@ -97,8 +97,8 @@ All files have been written in the [ts-standard](https://github.com/standard/ts-
 
 ## Authors
 
-* <a href="https://github.com/ObedRav" rel="nofollow"> **Obed Rayo** </a>
+* <a href="https://github.com/ObedRav" target="_blank" rel="nofollow"> **Obed Rayo** </a>
 
-* <a href="https://github.com/esteban-94" rel="nofollow"> **Esteban Enriquez** </a>
+* <a href="https://github.com/esteban-94" target="_blank" rel="nofollow"> **Esteban Enriquez** </a>
 
-* <a href="https://github.com/Chrs-creyk" rel="nofollow"> **Cristhian Jurado**  </a>
+* <a href="https://github.com/Chrs-creyk" target="_blank" rel="nofollow"> **Cristhian Jurado**  </a>
