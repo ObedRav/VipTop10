@@ -1,3 +1,4 @@
+// modules
 import express from 'express'
 import cors from 'cors'
 import helmet from 'helmet'
@@ -25,8 +26,10 @@ dotenv.config()
 // Obtaining env variables
 const PORT = process.env.PORT ?? 3500
 
+// Creating app
 const app = express()
 
+// Middleware json
 app.use(express.json())
 
 // Config CORS
@@ -37,6 +40,7 @@ const corsOptions = {
   credentials: true // Enable sending cookies from the client
 }
 
+// Using cors
 app.use(cors(corsOptions))
 
 // Add Security for common vulnerabilities
@@ -88,6 +92,7 @@ app.use('/api', [placesRouters, countriesRouters, citiesRouters, categoriesRoute
 // implementing the errors
 app.use(errorHandler)
 
+// https server
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)
 })

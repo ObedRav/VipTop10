@@ -1,7 +1,16 @@
 import express from 'express'
 import { StatusCodes } from 'http-status-codes'
+// import errors
 import { IdError, NotFound } from '../utils/errors'
 
+/**
+ * This function handles errors and returns appropriate responses based on the type of error
+ * encountered.
+ * @returns The function `errorHandler` returns a response object with an appropriate HTTP status code
+ * and error message based on the type of error that was passed in as the first argument. If the error
+ * is an instance of `IdError`, it returns a 400 Bad Request status code with the error message. If the
+ * error is an instance of `NotFound`, it returns a 404 Not Found status code with the error message.
+ */
 export const errorHandler = (
   err: Error,
   _req: express.Request,

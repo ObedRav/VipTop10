@@ -1,7 +1,9 @@
+// import models
 import PlaceModel from '../models/Place'
 import CategoryModel from '../models/Category'
 import CountryModel from '../models/Country'
 import CityModel from '../models/City'
+// import services
 import * as categoriesServices from './categoriesServices'
 import * as citiesServices from './citiesServices'
 import { checkDatabase } from '../database/database'

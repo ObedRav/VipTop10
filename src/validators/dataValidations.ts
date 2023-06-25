@@ -38,7 +38,7 @@ export function validateCity (req: express.Request, res: express.Response, next:
 
   const cityNames = cities.map((city) => city.name)
 
-  if (!cityNames.includes(city)) {
+  if (cityNames.includes(city) === false) {
     return res.status(StatusCodes.BAD_REQUEST).json({ error: 'Invalid city' })
   }
 
@@ -59,7 +59,7 @@ export function validateCategory (req: express.Request, res: express.Response, n
 
   const categoryNames = categories.map((category) => category.name)
 
-  if (!categoryNames.includes(category)) {
+  if (categoryNames.includes(category) === false) {
     return res.status(StatusCodes.BAD_REQUEST).json({ error: 'Invalid category' })
   }
 
