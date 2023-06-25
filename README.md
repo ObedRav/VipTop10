@@ -14,11 +14,15 @@ npm install
 
 
 3. Set up environment variables:
+
 - Create the `.env` file.
-- Open the `.env` file and update the necessary variables, such as the database credentials (DATABASE_USER, DATABASE_PASSWORD) and API keys(API_KEY_GOOGLE_MAPS, API_KEYS_AUTHORIZED).
+
+- Open the `.env` file and update the necessary variables, such as the database credentials `(DATABASE_USER, DATABASE_PASSWORD)` and API keys `(API_KEY_GOOGLE_MAPS, API_KEYS_AUTHORIZED)`.
 
 4. Generate SSL certificate files:
-- Make sure you have the necessary SSL certificate files in the specified directory(SSL_Certificates).
+
+- Make sure you have the necessary SSL certificate files in the specified directory`(SSL_Certificates)`.
+
 - Replace the placeholders in the code with the actual file paths.
 
 5. Build the project:
@@ -56,8 +60,8 @@ GET /api/categories
 - Filter places by city and category:
 POST /api/places
 
-```
 Request Body:
+```
     {
         "city": "New York",
         "category": "Restaurant"
