@@ -96,8 +96,9 @@ If you find any bug, please, let us know.
 All files have been written in the [ts-standard](https://github.com/standard/ts-standard) style.
 
 ## Authors
-* **Obed Rayo** <a href="https://github.com/ObedRav" rel="nofollow"><img align="center" alt="github" src="https://www.vectorlogo.zone/logos/github/github-tile.svg" height="24" /></a>
 
-* **Esteban Enriquez** <a href="https://github.com/esteban-94" rel="nofollow"><img align="center" alt="github" src="https://www.vectorlogo.zone/logos/github/github-tile.svg" height="24" /></a>
+* <a href="https://github.com/ObedRav" rel="nofollow"> **Obed Rayo** </a>
 
-* **Cristhian Jurado** <a href="https://github.com/Chrs-creyk" rel="nofollow"><img align="center" alt="github" src="https://www.vectorlogo.zone/logos/github/github-tile.svg" height="24" /></a>
+* <a href="https://github.com/esteban-94" rel="nofollow"> **Esteban Enriquez** </a>
+
+* <a href="https://github.com/Chrs-creyk" rel="nofollow"> **Cristhian Jurado**  </a>
