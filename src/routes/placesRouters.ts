@@ -1,23 +1,19 @@
 import express from 'express'
 import * as placesServices from '../services/placesServices'
 import { StatusCodes } from 'http-status-codes'
-import { validateCategory, validateCity } from '../utils'
-import { IDError } from '../errors'
+import { validateCategory, validateCity } from '../validators/dataValidations'
 
 const router = express.Router()
 
-router.get('/places/recomms', (_req, res) => {
+router.get('/places/recomms', (_req, res, next) => {
   placesServices.getRecommsPlaces()
     .then((places) => {
       res.json(places)
     })
-    .catch((err: Error) => {
-      console.error(err.message)
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the recomms places, try again in some minutes' })
-    })
+    .catch(next)
 })
 
-router.post('/places', validateCity, validateCategory, (req, res) => {
+router.post('/places', validateCity, validateCategory, (req, res, next) => {
   const { city } = req.body
   const { category } = req.body
 
@@ -25,46 +21,27 @@ router.post('/places', validateCity, validateCategory, (req, res) => {
     .then((categoryFilteredPlaces) => {
       res.status(StatusCodes.ACCEPTED).json(categoryFilteredPlaces)
     })
-    .catch((err: Error) => {
-      console.error(err.message)
-      res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the cities, try again in some minutes' })
-    })
+    .catch(next)
 })
 
-router.get('/places/:id', (req, res) => {
+router.get('/places/:id', (req, res, next) => {
   const id = req.params.id
 
   placesServices.getPlaceById(id)
     .then((place) => {
       res.json(place)
     })
-    .catch((err: Error) => {
-      if (err instanceof IDError) {
-        // Handle specific error for invalid ID
-        res.status(StatusCodes.BAD_REQUEST).json({ error: err.message })
-      } else {
-        console.error(err.message)
-        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the place, try again in some minutes' })
-      }
-    })
+    .catch(next)
 })
 
-router.get('/places/category/:categoryid', (req, res) => {
+router.get('/places/category/:categoryid', (req, res, next) => {
   const id = req.params.categoryid
 
   placesServices.getPlacesByCategory(id)
     .then((places) => {
       res.json(places)
     })
-    .catch((err: Error) => {
-      if (err instanceof IDError) {
-        // Handle specific error for invalid ID
-        res.status(StatusCodes.BAD_REQUEST).json({ error: err.message })
-      } else {
-        console.error(err.message)
-        res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error: 'There was an error retrieving the places by category, try again in some minutes' })
-      }
-    })
+    .catch(next)
 })
 
 export default router

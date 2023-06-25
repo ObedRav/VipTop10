@@ -5,7 +5,7 @@ import CountryModel from '../models/Country'
 import CityModel from '../models/City'
 // Import the createData function
 import { createData } from './setUpDatabase'
-import { checkDatabase } from '../database'
+import { checkDatabase } from './database'
 
 /**
  * This function clears multiple collections in a database and logs the success of each operation.

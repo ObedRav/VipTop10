@@ -1,8 +1,4 @@
 import mongoose from 'mongoose'
-import dotenv from 'dotenv'
-
-// Load the env variables
-dotenv.config()
 
 // Obtaining env variables for the connection
 const USER = process.env.DATABASE_USER ?? 'default'

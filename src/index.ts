@@ -5,15 +5,25 @@ import helmetCsp from 'helmet-csp'
 import https from 'https'
 import fs from 'fs'
 import path from 'path'
+import dotenv from 'dotenv'
 // import routers
 import placesRouters from './routes/placesRouters'
 import countriesRouters from './routes/countriesRouters'
 import citiesRouters from './routes/citiesRouters'
 import categoriesRouters from './routes/categoriesRouters'
 // databaseConnection
-import { connectDatabase } from './database'
+import { connectDatabase } from './database/database'
 // schedule data creation
-import { scheduleDataCreation } from './services/dataScheduler'
+// import { scheduleDataCreation } from './database/dataScheduler'
+// validation api key
+import { validateApiKey } from './middleware/apiKey'
+import { errorHandler } from './utils/errorHandler'
+
+// Load the env variables
+dotenv.config()
+
+// Obtaining env variables
+const PORT = process.env.PORT ?? 3500
 
 const app = express()
 
@@ -56,23 +66,27 @@ const serverOptions = {
   cert: fs.readFileSync(path.join(__dirname, '../SSL_Certificates/server.cert'))
 }
 
+// creating the secure protocolo server
 const server = https.createServer(serverOptions, app)
-
-// Obtaining env variables
-const PORT = process.env.PORT ?? 3500
 
 // Connection to database
 connectDatabase()
   .then(() => console.log('Database connected from Index'))
   .catch((err: Error) => console.error(`There was an error calling the function to connect to database: ${err.message}`))
 
+/* Call the function to schedule data creation
+scheduleDataCreation()
+  .then(() => console.log('The scheduleDataCreation was called'))
+  .catch(() => console.log('Data creation failed')) */
+
+// Apply API Key middleware to the entire API
+app.use(validateApiKey)
+
 // consuming the routers
 app.use('/api', [placesRouters, countriesRouters, citiesRouters, categoriesRouters])
 
-// Call the function to schedule data creation
-scheduleDataCreation()
-  .then(() => console.log('The scheduleDataCreation was called'))
-  .catch(() => console.log('Data creation failed'))
+// implementing the errors
+app.use(errorHandler)
 
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)

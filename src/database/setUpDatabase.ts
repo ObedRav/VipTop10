@@ -6,9 +6,9 @@ import PlaceModel from '../models/Place'
 // import types
 import { Country, Category, City, Place, GooglePlaceResult } from '../types'
 // import the whole data
-import categoriesData from './JSONs/categories.json'
-import countriesData from './JSONs/countries.json'
-import citiesData from './JSONs/cities.json'
+import categoriesData from '../services/JSONs/categories.json'
+import countriesData from '../services/JSONs/countries.json'
+import citiesData from '../services/JSONs/cities.json'
 
 const API_KEY = process.env.API_KEY_GOOGLE_MAPS ?? 'default'
 

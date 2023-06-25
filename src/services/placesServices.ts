@@ -4,9 +4,9 @@ import CountryModel from '../models/Country'
 import CityModel from '../models/City'
 import * as categoriesServices from './categoriesServices'
 import * as citiesServices from './citiesServices'
-import { checkDatabase } from '../database'
+import { checkDatabase } from '../database/database'
 import { Category, Country, City, Place } from '../types'
-import { IDError } from '../errors'
+import { IdError, NotFound } from '../utils/errors'
 import { isValidObjectId } from 'mongoose'
 
 /**
@@ -43,7 +43,7 @@ export async function getPlaceById (ID: string): Promise<Place> {
 
     // Check if is a valid ID
     if (!isValidObjectId(ID)) {
-      throw new IDError('Invalid ID')
+      throw new IdError('Invalid ID')
     }
 
     const place: Place | null = await PlaceModel.findById(ID)
@@ -56,10 +56,10 @@ export async function getPlaceById (ID: string): Promise<Place> {
 
       return transformedPlace
     } else {
-      throw new IDError('Place not found')
+      throw new NotFound('Place not found')
     }
   } catch (error) {
-    if (error instanceof IDError) {
+    if (error instanceof IdError || error instanceof NotFound) {
       throw error
     } else {
       throw new Error('Error retrieving place by ID')
@@ -85,13 +85,13 @@ export async function getPlacesByCategory (categoryId: string): Promise<Place[]>
 
     // Check if is a valid ID
     if (!isValidObjectId(categoryId)) {
-      throw new IDError('Invalid ID')
+      throw new IdError('Invalid ID')
     }
 
     // Check if the categoryId exists in the database
     const categoryExists = await CategoryModel.exists({ _id: categoryId })
     if (categoryExists === null) {
-      throw new IDError('Category not found')
+      throw new NotFound('Category not found')
     }
 
     const places: Place[] = await PlaceModel.find({ category: categoryId }).sort({ requests: -1 }).limit(30)
@@ -100,7 +100,7 @@ export async function getPlacesByCategory (categoryId: string): Promise<Place[]>
 
     return transformedPlaces
   } catch (error) {
-    if (error instanceof IDError) {
+    if (error instanceof IdError || error instanceof NotFound) {
       throw error
     } else {
       throw new Error('Error retrieving places by category')

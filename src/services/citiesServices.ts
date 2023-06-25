@@ -1,5 +1,5 @@
 import * as countriesService from './countriesServices'
-import { checkDatabase } from '../database'
+import { checkDatabase } from '../database/database'
 import CityModel from '../models/City'
 import { City } from '../types'
 

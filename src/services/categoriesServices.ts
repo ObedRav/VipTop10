@@ -1,5 +1,5 @@
 import CategoryModel from '../models/Category'
-import { checkDatabase } from '../database'
+import { checkDatabase } from '../database/database'
 import { Category } from '../types'
 
 /**

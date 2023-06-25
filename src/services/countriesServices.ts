@@ -1,4 +1,4 @@
-import { checkDatabase } from '../database'
+import { checkDatabase } from '../database/database'
 import CountryModel from '../models/Country'
 import { Country } from '../types'
 
