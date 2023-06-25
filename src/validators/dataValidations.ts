@@ -1,8 +1,8 @@
 import express from 'express'
 import { Countries } from '../types'
 import { StatusCodes } from 'http-status-codes'
-import cities from '../services/JSONs/cities.json' // Import the available cities
-import categories from '../services/JSONs/categories.json' // Import the available categories
+import cities from '../database/JSONs/cities.json' // Import the available cities
+import categories from '../database/JSONs/categories.json' // Import the available categories
 
 /**
  * This function validates if a given country is valid or not.
@@ -38,7 +38,7 @@ export function validateCity (req: express.Request, res: express.Response, next:
 
   const cityNames = cities.map((city) => city.name)
 
-  if (cityNames.includes(city) === false) {
+  if (!cityNames.includes(city)) {
     return res.status(StatusCodes.BAD_REQUEST).json({ error: 'Invalid city' })
   }
 
@@ -59,7 +59,7 @@ export function validateCategory (req: express.Request, res: express.Response, n
 
   const categoryNames = categories.map((category) => category.name)
 
-  if (categoryNames.includes(category) === false) {
+  if (!categoryNames.includes(category)) {
     return res.status(StatusCodes.BAD_REQUEST).json({ error: 'Invalid category' })
   }
 
