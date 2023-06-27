@@ -1,0 +1,227 @@
+[
+  {
+    "name": "Bogotá",
+    "country": "Colombia",
+    "coordinates": "4.6483, -74.0790"
+  },
+  {
+    "name": "Medellín",
+    "country": "Colombia",
+    "coordinates": "6.2442, -75.5812"
+  },
+  {
+    "name": "Cali",
+    "country": "Colombia",
+    "coordinates": "3.4516, -76.5320"
+  },
+  {
+    "name": "Barranquilla",
+    "country": "Colombia",
+    "coordinates": "10.9639, -74.7964"
+  },
+  {
+    "name": "Cartagena",
+    "country": "Colombia",
+    "coordinates": "10.3910, -75.4794"
+  },
+  {
+    "name": "Cúcuta",
+    "country": "Colombia",
+    "coordinates": "7.8939, -72.5079"
+  },
+  {
+    "name": "Bucaramanga",
+    "country": "Colombia",
+    "coordinates": "7.1194, -73.1227"
+  },
+  {
+    "name": "Pereira",
+    "country": "Colombia",
+    "coordinates": "4.8126, -75.7397"
+  },
+  {
+    "name": "Santa Marta",
+    "country": "Colombia",
+    "coordinates": "11.2404, -74.2110"
+  },
+  {
+    "name": "Ibagué",
+    "country": "Colombia",
+    "coordinates": "4.4389, -75.2322"
+  },
+  {
+    "name": "Villavicencio",
+    "country": "Colombia",
+    "coordinates": "4.1420, -73.6266"
+  },
+  {
+    "name": "Pasto",
+    "country": "Colombia",
+    "coordinates": "1.2136, -77.2811"
+  },
+  {
+    "name": "Manizales",
+    "country": "Colombia",
+    "coordinates": "5.0687, -75.5174"
+  },
+  {
+    "name": "Montería",
+    "country": "Colombia",
+    "coordinates": "8.7479, -75.8810"
+  },
+  {
+    "name": "Valledupar",
+    "country": "Colombia",
+    "coordinates": "10.4638, -73.2534"
+  },
+  {
+    "name": "Santo Domingo",
+    "country": "Dominican Republic",
+    "coordinates": "18.4861, -69.9312"
+  },
+  {
+    "name": "Santiago de los Caballeros",
+    "country": "Dominican Republic",
+    "coordinates": "19.4511, -70.6693"
+  },
+  {
+    "name": "Santo Domingo Este",
+    "country": "Dominican Republic",
+    "coordinates": "18.4853, -69.8574"
+  },
+  {
+    "name": "Santo Domingo Norte",
+    "country": "Dominican Republic",
+    "coordinates": "19.5944, -69.9648"
+  },
+  {
+    "name": "Santo Domingo Oeste",
+    "country": "Dominican Republic",
+    "coordinates": "18.4842, -70.0079"
+  },
+  {
+    "name": "San Pedro de Macorís",
+    "country": "Dominican Republic",
+    "coordinates": "18.4544, -69.2977"
+  },
+  {
+    "name": "La Romana",
+    "country": "Dominican Republic",
+    "coordinates": "18.4274, -68.9720"
+  },
+  {
+    "name": "Bella Vista",
+    "country": "Dominican Republic",
+    "coordinates": "18.4700, -69.9410"
+  },
+  {
+    "name": "San Cristóbal",
+    "country": "Dominican Republic",
+    "coordinates": "18.4160, -70.1096"
+  },
+  {
+    "name": "Puerto Plata",
+    "country": "Dominican Republic",
+    "coordinates": "19.7808, -70.6871"
+  },
+  {
+    "name": "San Francisco de Macorís",
+    "country": "Dominican Republic",
+    "coordinates": "19.3000, -70.2500"
+  },
+  {
+    "name": "Higüey",
+    "country": "Dominican Republic",
+    "coordinates": "18.6167, -68.7083"
+  },
+  {
+    "name": "La Vega",
+    "country": "Dominican Republic",
+    "coordinates": "19.2208, -70.5225"
+  },
+  {
+    "name": "Concepción de La Vega",
+    "country": "Dominican Republic",
+    "coordinates": "19.2222, -70.5292"
+  },
+  {
+    "name": "Moca",
+    "country": "Dominican Republic",
+    "coordinates": "19.3936, -70.5256"
+  },
+  {
+    "name": "Austin",
+    "country": "United States",
+    "coordinates": "30.2672, -97.7431"
+  },
+  {
+    "name": "Chicago",
+    "country": "United States",
+    "coordinates": "41.8781, -87.6298"
+  },
+  {
+    "name": "Columbus",
+    "country": "United States",
+    "coordinates": "39.9612, -82.9988"
+  },
+  {
+    "name": "Dallas",
+    "country": "United States",
+    "coordinates": "32.7767, -96.7970"
+  },
+  {
+    "name": "Houston",
+    "country": "United States",
+    "coordinates": "29.7604, -95.3698"
+  },
+  {
+    "name": "Indianapolis",
+    "country": "United States",
+    "coordinates": "39.7684, -86.1581"
+  },
+  {
+    "name": "Jacksonville",
+    "country": "United States",
+    "coordinates": "30.3322, -81.6557"
+  },
+  {
+    "name": "Los Angeles",
+    "country": "United States",
+    "coordinates": "34.0522, -118.2437"
+  },
+  {
+    "name": "New York City",
+    "country": "United States",
+    "coordinates": "40.7128, -74.0060"
+  },
+  {
+    "name": "Philadelphia",
+    "country": "United States",
+    "coordinates": "39.9526, -75.1652"
+  },
+  {
+    "name": "Phoenix",
+    "country": "United States",
+    "coordinates": "33.4484, -112.0740"
+  },
+  {
+    "name": "San Antonio",
+    "country": "United States",
+    "coordinates": "29.4241, -98.4936"
+  },
+  {
+    "name": "San Diego",
+    "country": "United States",
+    "coordinates": "32.7157, -117.1611"
+  },
+  {
+    "name": "San Francisco",
+    "country": "United States",
+    "coordinates": "37.7749, -122.4194"
+  },
+  {
+    "name": "San Jose",
+    "country": "United States",
+    "coordinates": "37.3382, -121.8863"
+  }
+]

@@ -49,5 +49,7 @@ Thumbs.db
 *.wmv
 
 build
-
+process.env
+SSL_Certificates
+env_variables.txt
 

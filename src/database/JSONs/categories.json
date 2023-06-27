@@ -1,0 +1,80 @@
+[
+    {
+        "name": "Car Rental"
+    },
+    {
+        "name": "Amusement Park"
+    },
+    {
+        "name": "Bowling Alley"
+    },
+    {
+        "name": "Casino"
+    },
+    {
+        "name": "Movie Theater"
+    },
+    {
+        "name": "Night Club"
+    },
+    {
+        "name": "Stadium"
+    },
+    {
+        "name": "Art Gallery"
+    },
+    {
+        "name": "Museum"
+    },
+    {
+        "name": "Bakery"
+    },
+    {
+        "name": "Bar"
+    },
+    {
+        "name": "Cafe"
+    },
+    {
+        "name": "Meal Takeaway"
+    },
+    {
+        "name": "Restaurant"
+    },
+    {
+        "name": "Beauty Salon"
+    },
+    {
+        "name": "Hair Care"
+    },
+    {
+        "name": "Pharmacy"
+    },
+    {
+        "name": "Spa"
+    },
+    {
+        "name": "Book Store"
+    },
+    {
+        "name": "Clothing Store"
+    },
+    {
+        "name": "Convenience Store"
+    },
+    {
+        "name": "Electronics Store"
+    },
+    {
+        "name": "Jewelry Store"
+    },
+    {
+        "name": "Liquor Store"
+    },
+    {
+        "name": "Shoe Store"
+    },
+    {
+        "name": "Shopping Mall"
+    }
+]
