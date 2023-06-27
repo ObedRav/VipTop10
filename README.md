@@ -26,7 +26,7 @@ API_KEYS_AUTHORIZED=<authorized-api-keys>
 ```
 Replace `<database-user>`,`<database-password>`, `<port-number>`, `<google-maps-api-key>`, and `<authorized-api-keys>` with the actual values for your environment.
 
-- If the `.env` file doesn't export the variables correctly, you can manually export them by running the following commands in the terminal (replace <value> with the actual value for each variable):
+- If the `.env` file doesn't export the variables correctly, you can manually export them by running the following commands in the terminal (replace `<value>` with the actual value for each variable):
 
 ```bash
 export DATABASE_USER=<value>
