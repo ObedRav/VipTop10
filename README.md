@@ -1,28 +1,33 @@
-# VIPTop10
+# VIPTop10 :earth_africa:
 
 This document provides instructions on how to use the VIPTop10 API, make requests, and handle validations. The API allows you to retrieve information about categories, countries, cities, and places, and provides filtering and recommendation features.
 
 <p align="center">
-  <img src="https://github.com/ObedRav/VipTop10/blob/development/UML.png" alt="UML" height=350>
+  <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/UML.png" alt="UML" height=550>
 </p>
 
 
-## Node Installation
+## Node Installation :space_invader:
 
-### Prerequisites
+<p align="center">
+  <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/node.png" alt="node logo" height=250>
+</p>
+
+### Prerequisites :ghost:
 
 - Node.js (version 18 or higher)
 - npm (Node Package Manager)
 
-### Installation Steps
+### Installation Steps :skier:
 
-1. Clone the repository
-2. Set up environment variables:
+**1.** Clone the repository
+
+**2.** Set up environment variables:
 
 - Create a file with `.env` extension in the root directory of the project.
 - Open the `.env` file and update the necessary variables:
 
-```plaintext
+```env
 DATABASE_USER=<database-user>
 DATABASE_PASSWORD=<database-password>
 PORT=<port-number>
@@ -44,51 +49,56 @@ export API_KEYS_AUTHORIZED=<value>
 
 Make sure to export the variables correctly to ensure the project works as expected.
 
-3. Generate SSL certificate files:
+**3.** Generate SSL certificate files:
 
 - Make sure you have the necessary SSL certificate files in the specified directory `SSL_Certificates`. Ensure that the server key file is named `server.key` and the server certificate file is named `server.cert`.
 
      If you only want to check the API, you can use the following command to generate a certificate and key:
 
-     ```
+     ```bash
      openssl req -nodes -new -x509 -keyout server.key -out server.cert
      ```
 
-4. Install dependencies:
+**4.** Install dependencies:
 
-```
+```bash
 npm install
 ```
 
-5. Build the project:
+**5.** Build the project:
 
-```
+```bash
 npm run tsc
 ```
 
-6. Start the server:
+**6.** Start the server:
 
-```
+```bash
 npm start
 ```
 
 The API will be accessible at `https://localhost:<port>/api`.
 
-## Docker Installation
+## Docker Installation :robot:
 
-### Prerequisites
+<p align="center">
+  <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/docker.png" alt="docker logo" height=250>
+</p>
+
+### Prerequisites :alien:
 
 - Docker Engine
 
-### Installation Steps
+### Installation Steps :snowboarder:
 
-1. Clone the repository
-2. Set up environment variables:
+**1.** Clone the repository
+
+**2.** Set up environment variables:
 
 - Create a file with `.txt` extension in the root directory of the project.
 - Open the `.txt` file and update the necessary variables:
 
-```plaintext
+```env
 DATABASE_USER=<database-user>
 DATABASE_PASSWORD=<database-password>
 PORT=<port-number>
@@ -97,25 +107,25 @@ API_KEYS_AUTHORIZED=<authorized-api-keys>
 ```
 Replace `<database-user>`,`<database-password>`, `<port-number>`, `<google-maps-api-key>`, and `<authorized-api-keys>` with the actual values for your environment.
 
-3. Generate SSL certificate files:
+**3.** Generate SSL certificate files:
 
 - Make sure you have the necessary SSL certificate files in the specified directory `SSL_Certificates`. Ensure that the server key file is named `server.key` and the server certificate file is named `server.cert`.
 
      If you only want to check the API, you can use the following command to generate a certificate and key:
 
-     ```
+     ```bash
      openssl req -nodes -new -x509 -keyout server.key -out server.cert
      ```
 
-4. Build the Docker image:
+**4.** Build the Docker image:
 
-```
+```bash
 docker build -t top10 .
 ```
 
-5. Start the Docker container:
+**5.** Start the Docker container:
 
-```
+```bash
 docker run --env-file <your-file.txt> -p <host-port>:<container-port> top10
 ```
 Replace `<host-port>` with the desired port number on your host machine and `<container-port>` with the corresponding port number specified in the .txt file (usually 5000).
@@ -123,7 +133,7 @@ Replace `<host-port>` with the desired port number on your host machine and `<co
 The API will be accessible at `https://localhost:<port>/api`.
 
 
-## API Endpoints
+## API Endpoints :page_with_curl:
 
 The API exposes the following endpoints:
 
@@ -136,15 +146,15 @@ The API exposes the following endpoints:
 - **GET /api/places/:id**: Retrieve a place by ID.
 - **GET /api/places/category/:categoryid**: Retrieve places by category.
 
-## Request Examples
+## Request Examples :notebook:
 
 Here are some examples of how to make requests to the API endpoints:
 
 - Retrieve all categories:
-GET */api/categories*
+**GET** */api/categories*
 
 - Filter places by city and category:
-POST */api/places*
+**POST** */api/places*
 
 **Request Body:**
 ```json
@@ -154,13 +164,19 @@ POST */api/places*
     }
 ```
 
-## API Key Validation
+## API Key Validation :newspaper:
 
 To ensure secure access to the API, the API Key validation middleware is implemented. The API Key must be included in the `Authorization` header of the request.
 
 If the API Key is missing or invalid, you will receive a `401 Unauthorized` response.
 
-## Error Handling
+```json
+{
+    "error": "Unauthorized"
+}
+```
+
+## Error Handling :x:
 
 The API handles errors and returns appropriate HTTP status codes and error messages in the response. The possible error status codes include:
 
@@ -171,7 +187,7 @@ The API handles errors and returns appropriate HTTP status codes and error messa
 
 Make sure to handle these errors appropriately in your client application.
 
-## Conclusion
+## Usage :white_check_mark:
 
 You can now start using the API by following the installation instructions and making requests to the provided endpoints.
 
@@ -189,8 +205,8 @@ git log --all --graph --decorate --oneline
 
 ## Authors
 
-* <a href="https://github.com/ObedRav" target="_blank" rel="nofollow"> **Obed Rayo** </a>
+* **Obed Rayo** <a href="https://github.com/esteban-94" rel="nofollow"><img align="center" alt="github" src="https://www.vectorlogo.zone/logos/github/github-tile.svg" height="24" /></a>
 
-* <a href="https://github.com/esteban-94" target="_blank" rel="nofollow"> **Esteban Enriquez** </a>
+* **Esteban Enriquez** <a href="https://github.com/esteban-94" rel="nofollow"><img align="center" alt="github" src="https://www.vectorlogo.zone/logos/github/github-tile.svg" height="24" /></a>
 
-* <a href="https://github.com/Chrs-creyk" target="_blank" rel="nofollow"> **Cristhian Jurado**  </a>
+* **Cristhian Jurado** <a href="https://github.com/esteban-94" rel="nofollow"><img align="center" alt="github" src="https://www.vectorlogo.zone/logos/github/github-tile.svg" height="24" /></a>
