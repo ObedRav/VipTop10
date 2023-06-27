@@ -181,6 +181,12 @@ If you find any bug, please, let us know.
 ## Styling :page_with_curl:
 All files have been written in the [ts-standard](https://github.com/standard/ts-standard) style.
 
+## Process :desktop_computer:
+If you want to watch the building process, you can type this in your console
+```
+git log --all --graph --decorate --oneline
+```
+
 ## Authors
 
 * <a href="https://github.com/ObedRav" target="_blank" rel="nofollow"> **Obed Rayo** </a>
