@@ -24,6 +24,7 @@ PORT=<port-number>
 API_KEY_GOOGLE_MAPS=<google-maps-api-key>
 API_KEYS_AUTHORIZED=<authorized-api-keys>
 ```
+
 Replace `<database-user>`,`<database-password>`, `<port-number>`, `<google-maps-api-key>`, and `<authorized-api-keys>` with the actual values for your environment.
 
 - If the `.env` file doesn't export the variables correctly, you can manually export them by running the following commands in the terminal (replace `<value>` with the actual value for each variable):
@@ -66,7 +67,7 @@ npm run tsc
 npm start
 ```
 
-The API will be accessible at `http://localhost:<port>/api`.
+The API will be accessible at `https://localhost:<port>/api`.
 
 ## Docker Installation
 
@@ -114,7 +115,7 @@ docker run --env-file <your-file.txt> -p <host-port>:<container-port> top10
 ```
 Replace `<host-port>` with the desired port number on your host machine and `<container-port>` with the corresponding port number specified in the .txt file (usually 5000).
 
-The API will be accessible at `http://localhost:<port>/api`.
+The API will be accessible at `https://localhost:<port>/api`.
 
 
 ## API Endpoints
