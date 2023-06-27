@@ -20,8 +20,9 @@ This document provides instructions on how to use the VIPTop10 API, make request
 
 ### Installation Steps :skier:
 
-1. Clone the repository
-2. Set up environment variables:
+**1.** Clone the repository
+
+**2.** Set up environment variables:
 
 - Create a file with `.env` extension in the root directory of the project.
 - Open the `.env` file and update the necessary variables:
@@ -48,7 +49,7 @@ export API_KEYS_AUTHORIZED=<value>
 
 Make sure to export the variables correctly to ensure the project works as expected.
 
-3. Generate SSL certificate files:
+**3.** Generate SSL certificate files:
 
 - Make sure you have the necessary SSL certificate files in the specified directory `SSL_Certificates`. Ensure that the server key file is named `server.key` and the server certificate file is named `server.cert`.
 
@@ -58,19 +59,19 @@ Make sure to export the variables correctly to ensure the project works as expec
      openssl req -nodes -new -x509 -keyout server.key -out server.cert
      ```
 
-4. Install dependencies:
+**4.** Install dependencies:
 
 ```bash
 npm install
 ```
 
-5. Build the project:
+**5.** Build the project:
 
 ```bash
 npm run tsc
 ```
 
-6. Start the server:
+**6.** Start the server:
 
 ```bash
 npm start
@@ -90,8 +91,9 @@ The API will be accessible at `https://localhost:<port>/api`.
 
 ### Installation Steps :snowboarder:
 
-1. Clone the repository
-2. Set up environment variables:
+**1.** Clone the repository
+
+**2.** Set up environment variables:
 
 - Create a file with `.txt` extension in the root directory of the project.
 - Open the `.txt` file and update the necessary variables:
@@ -105,7 +107,7 @@ API_KEYS_AUTHORIZED=<authorized-api-keys>
 ```
 Replace `<database-user>`,`<database-password>`, `<port-number>`, `<google-maps-api-key>`, and `<authorized-api-keys>` with the actual values for your environment.
 
-3. Generate SSL certificate files:
+**3.** Generate SSL certificate files:
 
 - Make sure you have the necessary SSL certificate files in the specified directory `SSL_Certificates`. Ensure that the server key file is named `server.key` and the server certificate file is named `server.cert`.
 
@@ -115,13 +117,13 @@ Replace `<database-user>`,`<database-password>`, `<port-number>`, `<google-maps-
      openssl req -nodes -new -x509 -keyout server.key -out server.cert
      ```
 
-4. Build the Docker image:
+**4.** Build the Docker image:
 
 ```bash
 docker build -t top10 .
 ```
 
-5. Start the Docker container:
+**5.** Start the Docker container:
 
 ```bash
 docker run --env-file <your-file.txt> -p <host-port>:<container-port> top10
