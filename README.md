@@ -184,12 +184,15 @@ If the API Key is missing or invalid, you will receive a `401 Unauthorized` resp
 
 The API handles errors and returns appropriate HTTP status codes and error messages in the response. The possible error status codes include:
 
-- `400 Bad Request`: Invalid request parameters or missing required fields.
-- `401 Unauthorized`: Missing or invalid API Key.
-- `404 Not Found`: Resource not found.
-- `500 Internal Server Error`: Server error occurred.
+- `400 Bad Request`: Indicates invalid request parameters or missing required fields. This can occur if the request is not properly formatted or if required data is missing.
+- `401 Unauthorized`: Indicates that the request requires authentication, and either no credentials were provided or the provided credentials are invalid.
+- `404 Not Found`: Indicates that the requested resource could not be found. This can occur if the specified endpoint or resource does not exist.
+- `503 Service Unavailable`: Indicates that the server is currently unable to handle the request due to a temporary overload or maintenance. This can occur if there are issues connecting to the database.
+- `500 Internal Server Error`: Indicates that a server error occurred. This can occur due to various reasons, such as unexpected exceptions or issues with the server infrastructure.
 
-Make sure to handle these errors appropriately in your client application.
+When consuming the API, make sure to handle these errors appropriately in your client application. You can inspect the HTTP status code of the response to determine the type of error that occurred. Additionally, the response may include an error message that provides more information about the specific error.
+
+It's recommended to handle different error scenarios in your client application and provide meaningful feedback to the user based on the encountered errors.
 
 ## Usage :white_check_mark:
 

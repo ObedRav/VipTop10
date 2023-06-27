@@ -5,7 +5,7 @@ import { StatusCodes } from 'http-status-codes'
 
 const router = express.Router()
 
-router.post('/cities', validateCountry, (req, res, next) => {
+router.post('/cities', validateCountry, (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const { country } = req.body
 
   citiesServices.getCitiesByCountry(country)

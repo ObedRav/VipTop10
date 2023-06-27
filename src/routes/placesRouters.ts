@@ -5,7 +5,7 @@ import { validateCategory, validateCity } from '../validators/dataValidations'
 
 const router = express.Router()
 
-router.get('/places/recomms', (_req, res, next) => {
+router.get('/places/recomms', (_req: express.Request, res: express.Response, next: express.NextFunction) => {
   placesServices.getRecommsPlaces()
     .then((places) => {
       res.json(places)
@@ -13,7 +13,7 @@ router.get('/places/recomms', (_req, res, next) => {
     .catch(next)
 })
 
-router.post('/places', validateCity, validateCategory, (req, res, next) => {
+router.post('/places', validateCity, validateCategory, (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const { city } = req.body
   const { category } = req.body
 
@@ -24,7 +24,7 @@ router.post('/places', validateCity, validateCategory, (req, res, next) => {
     .catch(next)
 })
 
-router.get('/places/:id', (req, res, next) => {
+router.get('/places/:id', (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const id = req.params.id
 
   placesServices.getPlaceById(id)
@@ -34,7 +34,7 @@ router.get('/places/:id', (req, res, next) => {
     .catch(next)
 })
 
-router.get('/places/category/:categoryid', (req, res, next) => {
+router.get('/places/category/:categoryid', (req: express.Request, res: express.Response, next: express.NextFunction) => {
   const id = req.params.categoryid
 
   placesServices.getPlacesByCategory(id)

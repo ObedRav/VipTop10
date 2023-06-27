@@ -6,8 +6,14 @@ import categories from '../database/JSONs/categories.json' // Import the availab
 
 /**
  * This function validates if a given country is valid or not.
- * @returns either a response with a 400 status code and an error message if the country is null or
- * invalid, or it is calling the next middleware function if the country is valid.
+ * @param req - The Express request object
+ * @param res - The Express response object
+ * @param next - The Express next function
+ * @returns If the `country` is null, it returns a JSON response with a status code of 400 (Bad Request)
+ * and an error message indicating that the country is required. If the `country` is not a valid country
+ * from the `Countries` enum, it returns a JSON response with a status code of 400 (Bad Request) and an
+ * error message indicating that the country is invalid. Otherwise, it calls the `next()` function to
+ * move on to the next middleware function.
  */
 export function validateCountry (req: express.Request, res: express.Response, next: express.NextFunction): any {
   const { country } = req.body
@@ -24,10 +30,14 @@ export function validateCountry (req: express.Request, res: express.Response, ne
 }
 
 /**
- * This function validates if a city is present in a list of cities and returns an error message if it
- * is not.
- * @returns either a response with a status code and error message if the city is null or invalid, or
- * it is calling the next middleware function if the city is valid.
+ * This function validates if a city is present in a list of cities and returns an error message if it is not.
+ * @param req - The Express request object
+ * @param res - The Express response object
+ * @param next - The Express next function
+ * @returns If the `city` is null, it returns a JSON response with a status code of 400 (Bad Request) and an
+ * error message indicating that the city is required. If the `city` is not present in the list of cities,
+ * it returns a JSON response with a status code of 400 (Bad Request) and an error message indicating that
+ * the city is invalid. Otherwise, it calls the `next()` function to move on to the next middleware function.
  */
 export function validateCity (req: express.Request, res: express.Response, next: express.NextFunction): any {
   const { city } = req.body
@@ -47,8 +57,14 @@ export function validateCity (req: express.Request, res: express.Response, next:
 
 /**
  * This function validates if a category is present in the request body and if it is a valid category.
- * @returns either a response with a status code and error message if the category is null or invalid,
- * or it is calling the next middleware function if the category is valid.
+ * @param req - The Express request object
+ * @param res - The Express response object
+ * @param next - The Express next function
+ * @returns If the `category` is null, it returns a JSON response with a status code of 400 (Bad Request)
+ * and an error message indicating that the category is required. If the `category` is not present in the
+ * list of categories, it returns a JSON response with a status code of 400 (Bad Request) and an error message
+ * indicating that the category is invalid. Otherwise, it calls the `next()` function to move on to the next
+ * middleware function.
  */
 export function validateCategory (req: express.Request, res: express.Response, next: express.NextFunction): any {
   const { category } = req.body

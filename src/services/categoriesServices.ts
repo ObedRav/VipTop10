@@ -1,14 +1,13 @@
 import CategoryModel from '../models/Category'
 import { checkDatabase } from '../database/database'
 import { Category } from '../types'
+import { DatabaseError } from '../utils/errors'
 
 /**
- * This function retrieves all categories from a database and returns them as an array of Category
- * objects.
- * @returns This function is returning an array of Category objects. The Category objects have a "name"
- * property, which is the only property being selected from the database. The function is also wrapped
- * in a try-catch block to handle any errors that may occur during the database query. If an error
- * occurs, the function will throw an error with the message "Failed to fetch categories".
+ * Retrieves all categories from a database and returns them as an array of Category objects.
+ * @returns An array of Category objects. Each Category object has a "name" property.
+ * @throws Throws an error with the message "Failed to fetch categories" if an error occurs during
+ * the database query.
  */
 export async function getCategories (): Promise<Category[]> {
   try {
@@ -19,14 +18,16 @@ export async function getCategories (): Promise<Category[]> {
 
     return categories
   } catch (error) {
-    throw new Error('Failed to fetch categories')
+    throw new DatabaseError('Failed to fetch categories')
   }
 }
 
 /**
- * This function retrieves the top 3 recommended categories from a database.
- * @returns an array of up to three recommended categories. Each category object in the array has a
+ * Retrieves the top 3 recommended categories from a database.
+ * @returns An array of up to three recommended categories. Each category object in the array has a
  * "name" property.
+ * @throws Throws an error with the message "Error retrieving recommended categories" if an error
+ * occurs during the database query.
  */
 export async function getRecommsCategories (): Promise<Category[]> {
   try {
@@ -37,16 +38,17 @@ export async function getRecommsCategories (): Promise<Category[]> {
 
     return categories
   } catch (error) {
-    throw new Error('Error retrieving recommended categories')
+    throw new DatabaseError('Error retrieving recommended categories')
   }
 }
 
 /**
- * This function retrieves the ID of a category from the database based on its name.
- * @param {string} categoryName - The parameter `categoryName` is a string that represents the name of
- * the category that we want to fetch from the database.
- * @returns a Promise that resolves to a string or null value. The string value is the ID of the
- * category that matches the provided category name, or null if no matching category is found.
+ * Retrieves the ID of a category from the database based on its name.
+ * @param categoryName - The name of the category to fetch from the database.
+ * @returns A Promise that resolves to a string or null. The string value is the ID of the category that
+ * matches the provided category name, or null if no matching category is found.
+ * @throws Throws an error with the message "The category doesn't exist" if an error occurs during
+ * the database query or if the category is not found.
  */
 export async function getCategoryByName (categoryName: string): Promise<string | null> {
   try {
@@ -57,6 +59,6 @@ export async function getCategoryByName (categoryName: string): Promise<string |
     return country
   } catch (error: any) {
     console.error(error.message)
-    throw new Error('The category doesnt exists')
+    throw new DatabaseError('The category doesnt exists')
   }
 }

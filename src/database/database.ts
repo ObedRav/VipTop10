@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import { DatabaseError } from '../utils/errors'
 
 // Obtaining env variables for the connection
 const USER = process.env.DATABASE_USER ?? 'default'
@@ -16,7 +17,7 @@ export async function connectDatabase (): Promise<void> {
       console.log('Connected to MongoDB Atlas')
     })
     .catch((error: Error) => {
-      console.error(`Failed to connect to MongoDB ${error.message}`)
+      throw new DatabaseError(`Failed to connect to MongoDB ${error.message}`)
     })
 }
 
@@ -32,6 +33,6 @@ export async function checkDatabase (): Promise<void> {
     }
   } catch (err) {
     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-    console.error(`There was an error calling the function to connect to the database: ${err}`)
+    throw new DatabaseError(`There was an error calling the function to connect to the database: ${err}`)
   }
 }
