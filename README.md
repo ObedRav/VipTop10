@@ -3,14 +3,14 @@
 This document provides instructions on how to use the VIPTop10 API, make requests, and handle validations. The API allows you to retrieve information about categories, countries, cities, and places, and provides filtering and recommendation features.
 
 <p align="center">
-  <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/UML.png" alt="UML" height=350>
+  <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/UML.png" alt="UML" height=500>
 </p>
 
 
 ## Node Installation
 
 <p align="center">
-  <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/node.png" alt="node logo" height=350>
+  <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/node.png" alt="node logo" height=250>
 </p>
 
 ### Prerequisites
@@ -81,7 +81,7 @@ The API will be accessible at `https://localhost:<port>/api`.
 ## Docker Installation
 
 <p align="center">
-  <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/docker.png" alt="docker logo" height=350>
+  <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/docker.png" alt="docker logo" height=250>
 </p>
 
 ### Prerequisites
