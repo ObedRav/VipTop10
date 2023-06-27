@@ -203,8 +203,8 @@ git log --all --graph --decorate --oneline
 
 ## Authors
 
-* <a href="https://github.com/ObedRav" target="_blank" rel="nofollow"> **Obed Rayo** </a>
+* **Obed Rayo** <a href="https://github.com/esteban-94" rel="nofollow"><img align="center" alt="github" src="https://www.vectorlogo.zone/logos/github/github-tile.svg" height="24" /></a>
 
-* <a href="https://github.com/esteban-94" target="_blank" rel="nofollow"> **Esteban Enriquez** </a>
+* **Esteban Enriquez** <a href="https://github.com/esteban-94" rel="nofollow"><img align="center" alt="github" src="https://www.vectorlogo.zone/logos/github/github-tile.svg" height="24" /></a>
 
-* <a href="https://github.com/Chrs-creyk" target="_blank" rel="nofollow"> **Cristhian Jurado**  </a>
+* **Cristhian Jurado** <a href="https://github.com/esteban-94" rel="nofollow"><img align="center" alt="github" src="https://www.vectorlogo.zone/logos/github/github-tile.svg" height="24" /></a>
