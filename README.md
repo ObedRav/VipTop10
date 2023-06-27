@@ -51,13 +51,15 @@ Make sure to export the variables correctly to ensure the project works as expec
 
 **3.** Generate SSL certificate files:
 
-- Make sure you have the necessary SSL certificate files in the specified directory `SSL_Certificates`. Ensure that the server key file is named `server.key` and the server certificate file is named `server.cert`.
+- Run the existing script called `secure_protocol.sh` to generate the SSL certificate files.
 
-     If you only want to check the API, you can use the following command to generate a certificate and key:
+```
+bash secure_protocol.sh
+```
 
-     ```ruby
-     openssl req -nodes -new -x509 -keyout server.key -out server.cert
-     ```
+This script will generate the SSL certificate files (`server.key` and `server.cert`) and move them to the SSL_Certificates directory.
+
+Please note that the generated key and certificate are suitable for development purposes only. In a production environment, you should obtain a trusted SSL certificate from a certificate authority (CA) to ensure secure communication with the API.
 
 **4.** Install dependencies:
 
@@ -109,13 +111,15 @@ Replace `<database-user>`,`<database-password>`, `<port-number>`, `<google-maps-
 
 **3.** Generate SSL certificate files:
 
-- Make sure you have the necessary SSL certificate files in the specified directory `SSL_Certificates`. Ensure that the server key file is named `server.key` and the server certificate file is named `server.cert`.
+- Run the existing script called `secure_protocol.sh` to generate the SSL certificate files.
 
-     If you only want to check the API, you can use the following command to generate a certificate and key:
+```
+bash secure_protocol.sh
+```
 
-     ```ruby
-     openssl req -nodes -new -x509 -keyout server.key -out server.cert
-     ```
+This script will generate the SSL certificate files (`server.key` and `server.cert`) and move them to the SSL_Certificates directory.
+
+Please note that the generated key and certificate are suitable for development purposes only. In a production environment, you should obtain a trusted SSL certificate from a certificate authority (CA) to ensure secure communication with the API.
 
 **4.** Build the Docker image:
 
