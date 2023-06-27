@@ -3,7 +3,7 @@
 This document provides instructions on how to use the VIPTop10 API, make requests, and handle validations. The API allows you to retrieve information about categories, countries, cities, and places, and provides filtering and recommendation features.
 
 <p align="center">
-  <img src="https://github.com/ObedRav/VipTop10/blob/master/UML.png" alt="UML" height=350>
+  <img src="https://github.com/ObedRav/VipTop10/blob/development/UML.png" alt="UML" height=350>
 </p>
 
 
