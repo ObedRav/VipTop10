@@ -14,7 +14,7 @@ RUN npm install
 COPY . .
 
 # Build the TypeScript code
-RUN npm run tsc
+RUN npm run tsc 
 
 # Expose port 3000
 EXPOSE 5000
