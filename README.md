@@ -55,25 +55,25 @@ Make sure to export the variables correctly to ensure the project works as expec
 
      If you only want to check the API, you can use the following command to generate a certificate and key:
 
-     ```bash
+     ```ruby
      openssl req -nodes -new -x509 -keyout server.key -out server.cert
      ```
 
 **4.** Install dependencies:
 
-```bash
+```ruby
 npm install
 ```
 
 **5.** Build the project:
 
-```bash
+```ruby
 npm run tsc
 ```
 
 **6.** Start the server:
 
-```bash
+```ruby
 npm start
 ```
 
@@ -113,19 +113,19 @@ Replace `<database-user>`,`<database-password>`, `<port-number>`, `<google-maps-
 
      If you only want to check the API, you can use the following command to generate a certificate and key:
 
-     ```bash
+     ```ruby
      openssl req -nodes -new -x509 -keyout server.key -out server.cert
      ```
 
 **4.** Build the Docker image:
 
-```bash
+```ruby
 docker build -t top10 .
 ```
 
 **5.** Start the Docker container:
 
-```bash
+```ruby
 docker run --env-file <your-file.txt> -p <host-port>:<container-port> top10
 ```
 Replace `<host-port>` with the desired port number on your host machine and `<container-port>` with the corresponding port number specified in the .txt file (usually 5000).
