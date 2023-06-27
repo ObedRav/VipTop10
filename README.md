@@ -151,10 +151,10 @@ The API exposes the following endpoints:
 Here are some examples of how to make requests to the API endpoints:
 
 - Retrieve all categories:
-GET */api/categories*
+**GET** */api/categories*
 
 - Filter places by city and category:
-POST */api/places*
+**POST** */api/places*
 
 **Request Body:**
 ```json
