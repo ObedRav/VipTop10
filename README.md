@@ -183,7 +183,7 @@ All files have been written in the [ts-standard](https://github.com/standard/ts-
 
 ## Process :desktop_computer:
 If you want to watch the building process, you can type this in your console
-```
+```bash
 git log --all --graph --decorate --oneline
 ```
 
