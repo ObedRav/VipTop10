@@ -66,13 +66,13 @@ npm install
 
 5. Build the project:
 
-```
+```bash
 npm run tsc
 ```
 
 6. Start the server:
 
-```
+```bash
 npm start
 ```
 
@@ -111,19 +111,19 @@ Replace `<database-user>`,`<database-password>`, `<port-number>`, `<google-maps-
 
      If you only want to check the API, you can use the following command to generate a certificate and key:
 
-     ```
+     ```bash
      openssl req -nodes -new -x509 -keyout server.key -out server.cert
      ```
 
 4. Build the Docker image:
 
-```docker
+```bash
 docker build -t top10 .
 ```
 
 5. Start the Docker container:
 
-```
+```bash
 docker run --env-file <your-file.txt> -p <host-port>:<container-port> top10
 ```
 Replace `<host-port>` with the desired port number on your host machine and `<container-port>` with the corresponding port number specified in the .txt file (usually 5000).
