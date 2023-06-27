@@ -26,7 +26,7 @@ This document provides instructions on how to use the VIPTop10 API, make request
 - Create a file with `.env` extension in the root directory of the project.
 - Open the `.env` file and update the necessary variables:
 
-```plaintext
+```env
 DATABASE_USER=<database-user>
 DATABASE_PASSWORD=<database-password>
 PORT=<port-number>
@@ -54,13 +54,13 @@ Make sure to export the variables correctly to ensure the project works as expec
 
      If you only want to check the API, you can use the following command to generate a certificate and key:
 
-     ```
+     ```bash
      openssl req -nodes -new -x509 -keyout server.key -out server.cert
      ```
 
 4. Install dependencies:
 
-```
+```bash
 npm install
 ```
 
@@ -96,7 +96,7 @@ The API will be accessible at `https://localhost:<port>/api`.
 - Create a file with `.txt` extension in the root directory of the project.
 - Open the `.txt` file and update the necessary variables:
 
-```plaintext
+```env
 DATABASE_USER=<database-user>
 DATABASE_PASSWORD=<database-password>
 PORT=<port-number>
@@ -117,7 +117,7 @@ Replace `<database-user>`,`<database-password>`, `<port-number>`, `<google-maps-
 
 4. Build the Docker image:
 
-```
+```docker
 docker build -t top10 .
 ```
 
