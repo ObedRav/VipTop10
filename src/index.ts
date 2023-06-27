@@ -24,7 +24,7 @@ import { errorHandler } from './utils/errorHandler'
 dotenv.config()
 
 // Obtaining env variables
-const PORT = process.env.PORT ?? 3500
+const PORT = process.env.PORT ?? 5000
 
 // Creating app
 const app = express()
