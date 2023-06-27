@@ -3,7 +3,7 @@
 This document provides instructions on how to use the VIPTop10 API, make requests, and handle validations. The API allows you to retrieve information about categories, countries, cities, and places, and provides filtering and recommendation features.
 
 <p align="center">
-  <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/UML.png" alt="UML" height=500>
+  <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/UML.png" alt="UML" height=550>
 </p>
 
 
@@ -168,6 +168,12 @@ To ensure secure access to the API, the API Key validation middleware is impleme
 
 If the API Key is missing or invalid, you will receive a `401 Unauthorized` response.
 
+```json
+{
+    "error": "Unauthorized"
+}
+```
+
 ## Error Handling
 
 The API handles errors and returns appropriate HTTP status codes and error messages in the response. The possible error status codes include:
@@ -179,7 +185,7 @@ The API handles errors and returns appropriate HTTP status codes and error messa
 
 Make sure to handle these errors appropriately in your client application.
 
-## Conclusion
+## Usage
 
 You can now start using the API by following the installation instructions and making requests to the provided endpoints.
 
