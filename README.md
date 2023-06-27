@@ -1,4 +1,4 @@
-# VIPTop10
+# VIPTop10 :earth_africa:
 
 This document provides instructions on how to use the VIPTop10 API, make requests, and handle validations. The API allows you to retrieve information about categories, countries, cities, and places, and provides filtering and recommendation features.
 
@@ -7,18 +7,18 @@ This document provides instructions on how to use the VIPTop10 API, make request
 </p>
 
 
-## Node Installation
+## Node Installation :space_invader:
 
 <p align="center">
   <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/node.png" alt="node logo" height=250>
 </p>
 
-### Prerequisites
+### Prerequisites :ghost:
 
 - Node.js (version 18 or higher)
 - npm (Node Package Manager)
 
-### Installation Steps
+### Installation Steps :skier:
 
 1. Clone the repository
 2. Set up environment variables:
@@ -78,17 +78,17 @@ npm start
 
 The API will be accessible at `https://localhost:<port>/api`.
 
-## Docker Installation
+## Docker Installation :robot:
 
 <p align="center">
   <img src="https://github.com/ObedRav/VipTop10/blob/development/Images/docker.png" alt="docker logo" height=250>
 </p>
 
-### Prerequisites
+### Prerequisites :alien:
 
 - Docker Engine
 
-### Installation Steps
+### Installation Steps :snowboarder:
 
 1. Clone the repository
 2. Set up environment variables:
@@ -131,7 +131,7 @@ Replace `<host-port>` with the desired port number on your host machine and `<co
 The API will be accessible at `https://localhost:<port>/api`.
 
 
-## API Endpoints
+## API Endpoints :page_with_curl:
 
 The API exposes the following endpoints:
 
@@ -144,7 +144,7 @@ The API exposes the following endpoints:
 - **GET /api/places/:id**: Retrieve a place by ID.
 - **GET /api/places/category/:categoryid**: Retrieve places by category.
 
-## Request Examples
+## Request Examples :notebook:
 
 Here are some examples of how to make requests to the API endpoints:
 
@@ -162,7 +162,7 @@ POST */api/places*
     }
 ```
 
-## API Key Validation
+## API Key Validation :newspaper:
 
 To ensure secure access to the API, the API Key validation middleware is implemented. The API Key must be included in the `Authorization` header of the request.
 
@@ -174,7 +174,7 @@ If the API Key is missing or invalid, you will receive a `401 Unauthorized` resp
 }
 ```
 
-## Error Handling
+## Error Handling :x:
 
 The API handles errors and returns appropriate HTTP status codes and error messages in the response. The possible error status codes include:
 
@@ -185,7 +185,7 @@ The API handles errors and returns appropriate HTTP status codes and error messa
 
 Make sure to handle these errors appropriately in your client application.
 
-## Usage
+## Usage :white_check_mark:
 
 You can now start using the API by following the installation instructions and making requests to the provided endpoints.
 
