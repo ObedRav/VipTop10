@@ -2,6 +2,11 @@
 
 This document provides instructions on how to use the VIPTop10 API, make requests, and handle validations. The API allows you to retrieve information about categories, countries, cities, and places, and provides filtering and recommendation features.
 
+<p align="center">
+  <img src="https://github.com/ObedRav/VipTop10/blob/development/UML.png" alt="UML" height=350>
+</p>
+
+
 ## Node Installation
 
 ### Prerequisites
@@ -175,6 +180,12 @@ If you find any bug, please, let us know.
 
 ## Styling :page_with_curl:
 All files have been written in the [ts-standard](https://github.com/standard/ts-standard) style.
+
+## Process :desktop_computer:
+If you want to watch the building process, you can type this in your console
+```bash
+git log --all --graph --decorate --oneline
+```
 
 ## Authors
 
