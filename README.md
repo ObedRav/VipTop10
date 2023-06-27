@@ -53,11 +53,11 @@ Make sure to export the variables correctly to ensure the project works as expec
 
 - Run the existing script called `secure_protocol.sh` to generate the SSL certificate files.
 
-```
+```ruby
 bash secure_protocol.sh
 ```
 
-This script will generate the SSL certificate files (`server.key` and `server.cert`) and move them to the SSL_Certificates directory.
+This script will generate the SSL certificate files (`server.key` and `server.cert`) and move them to the `SSL_Certificates` directory.
 
 Please note that the generated key and certificate are suitable for development purposes only. In a production environment, you should obtain a trusted SSL certificate from a certificate authority (CA) to ensure secure communication with the API.
 
@@ -113,11 +113,11 @@ Replace `<database-user>`,`<database-password>`, `<port-number>`, `<google-maps-
 
 - Run the existing script called `secure_protocol.sh` to generate the SSL certificate files.
 
-```
+```ruby
 bash secure_protocol.sh
 ```
 
-This script will generate the SSL certificate files (`server.key` and `server.cert`) and move them to the SSL_Certificates directory.
+This script will generate the SSL certificate files (`server.key` and `server.cert`) and move them to the `SSL_Certificates` directory.
 
 Please note that the generated key and certificate are suitable for development purposes only. In a production environment, you should obtain a trusted SSL certificate from a certificate authority (CA) to ensure secure communication with the API.
 
