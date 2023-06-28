@@ -194,6 +194,92 @@ When consuming the API, make sure to handle these errors appropriately in your c
 
 It's recommended to handle different error scenarios in your client application and provide meaningful feedback to the user based on the encountered errors.
 
+## Available Countries, Cities, and Categories
+The available countries, cities, and categories are these:
+
+**Countries:**
+
+- Colombia
+- Dominican Republic
+- United States
+
+**Cities:**
+
+- Bogotá, Colombia
+- Medellín, Colombia
+- Cali, Colombia
+- Barranquilla, Colombia
+- Cartagena, Colombia
+- Cúcuta, Colombia
+- Bucaramanga, Colombia
+- Pereira, Colombia
+- Santa Marta, Colombia
+- Ibagué, Colombia
+- Villavicencio, Colombia
+- Pasto, Colombia
+- Manizales, Colombia
+- Montería, Colombia
+- Valledupar, Colombia
+- Santo Domingo, Dominican Republic
+- Santiago de los Caballeros, Dominican Republic
+- Santo Domingo Este, Dominican Republic
+- Santo Domingo Norte, Dominican Republic
+- Santo Domingo Oeste, Dominican Republic
+- San Pedro de Macorís, Dominican Republic
+- La Romana, Dominican Republic
+- Bella Vista, Dominican Republic
+- San Cristóbal, Dominican Republic
+- Puerto Plata, Dominican Republic
+- San Francisco de Macorís, Dominican Republic
+- Higüey, Dominican Republic
+- La Vega, Dominican Republic
+- Concepción de La Vega, Dominican Republic
+- Moca, Dominican Republic
+- Austin, United States
+- Chicago, United States
+- Columbus, United States
+- Dallas, United States
+- Houston, United States
+- Indianapolis, United States
+- Jacksonville, United States
+- Los Angeles, United States
+- New York City, United States
+- Philadelphia, United States
+- Phoenix, United States
+- San Antonio, United States
+- San Diego, United States
+- San Francisco, United States
+- San Jose, United States
+
+**Categories:**
+
+- Car Rental
+- Amusement Park
+- Bowling Alley
+- Casino
+- Movie Theater
+- Night Club
+- Stadium
+- Art Gallery
+- Museum
+- Bakery
+- Bar
+- Cafe
+- Meal Takeaway
+- Restaurant
+- Beauty Salon
+- Hair Care
+- Pharmacy
+- Spa
+- Book Store
+- Clothing Store
+- Convenience Store
+- Electronics Store
+- Jewelry Store
+- Liquor Store
+- Shoe Store
+- Shopping Mall
+
 ## Usage :white_check_mark:
 
 You can now start using the API by following the installation instructions and making requests to the provided endpoints.
