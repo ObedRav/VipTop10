@@ -194,16 +194,16 @@ When consuming the API, make sure to handle these errors appropriately in your c
 
 It's recommended to handle different error scenarios in your client application and provide meaningful feedback to the user based on the encountered errors.
 
-## Available Countries, Cities, and Categories
+## Available Countries, Cities, and Categories :earth_americas:
 The available countries, cities, and categories are these:
 
 **Countries:**
 
-- Colombia
-- Dominican Republic
-- United States
+- Colombia :colombia:
+- Dominican Republic :dominican_republic:
+- United States :us:
 
-**Cities:**
+**Cities:** :cityscape:
 
 - Bogotá, Colombia
 - Medellín, Colombia
@@ -253,13 +253,13 @@ The available countries, cities, and categories are these:
 
 **Categories:**
 
-- Car Rental
-- Amusement Park
+- Car Rental :car: 
+- Amusement Park :national_park:
 - Bowling Alley
 - Casino
 - Movie Theater
 - Night Club
-- Stadium
+- Stadium :stadium:
 - Art Gallery
 - Museum
 - Bakery
