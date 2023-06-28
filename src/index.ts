@@ -92,6 +92,11 @@ app.use('/api', [placesRouters, countriesRouters, citiesRouters, categoriesRoute
 // implementing the errors
 app.use(errorHandler)
 
+// handle server startup errors
+server.on('error', (error) => {
+  console.error('Server startup error:', error)
+})
+
 // https server
 server.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)

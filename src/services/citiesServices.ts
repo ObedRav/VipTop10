@@ -2,16 +2,15 @@ import * as countriesService from './countriesServices'
 import { checkDatabase } from '../database/database'
 import CityModel from '../models/City'
 import { City } from '../types'
-
+import { DatabaseError } from '../utils/errors'
 /**
- * This function retrieves cities by country from a database and returns them as a Promise.
- * @param {string} country - The `country` parameter is a string that represents the name of a country.
- * The function uses this parameter to retrieve the ID of the country from the database and then
- * fetches all the cities that belong to that country.
- * @returns The function `getCitiesByCountry` returns a Promise that resolves to an array of `City`
- * objects. The `City` objects only have the `name` property, and they belong to the country specified
- * by the `country` parameter. If there is an error, the function throws an error with a message
- * "Failed to fetch cities - citiesServices/getCitiesByCountry".
+ * Retrieves cities by country from a database and returns them as a Promise.
+ * @param country - The name of the country for which to retrieve the cities.
+ * @returns A Promise that resolves to an array of City objects. Each City object has a "name"
+ * property and belongs to the specified country. If there is an error, the function throws an error
+ * with the message "Failed to fetch cities - citiesServices/getCitiesByCountry".
+ * @throws Throws an error with the message "Failed to fetch cities - citiesServices/getCitiesByCountry"
+ * if an error occurs during the database query.
  */
 export async function getCitiesByCountry (country: string): Promise<City[]> {
   try {
@@ -24,16 +23,17 @@ export async function getCitiesByCountry (country: string): Promise<City[]> {
     return cities
   } catch (err: any) {
     console.error(err.message)
-    throw new Error('Failed to fetch cities - citiesServices/getCitiesByCountry')
+    throw new DatabaseError('Failed to fetch cities - citiesServices/getCitiesByCountry')
   }
 }
 
 /**
- * This function retrieves the ID of a city from a database by its name.
- * @param {string} cityName - The parameter `cityName` is a string that represents the name of a city.
- * It is used as a filter to search for a city in the database.
- * @returns a Promise that resolves to a string or null value. The string value is the ID of the city
- * found in the database, or null if the city is not found.
+ * Retrieves the ID of a city from a database by its name.
+ * @param cityName - The name of the city to fetch from the database.
+ * @returns A Promise that resolves to a string or null. The string value is the ID of the city found
+ * in the database, or null if the city is not found.
+ * @throws Throws an error with the message "The city doesn't exist" if an error occurs during the
+ * database query or if the city is not found.
  */
 export async function getCityByName (cityName: string): Promise<string | null> {
   try {
@@ -44,6 +44,6 @@ export async function getCityByName (cityName: string): Promise<string | null> {
     return country
   } catch (error: any) {
     console.error(error.message)
-    throw new Error('The city doesnt exists')
+    throw new DatabaseError('The city doesnt exists')
   }
 }

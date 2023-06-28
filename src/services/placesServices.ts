@@ -1,3 +1,4 @@
+import { isValidObjectId } from 'mongoose'
 // import models
 import PlaceModel from '../models/Place'
 import CategoryModel from '../models/Category'
@@ -8,12 +9,13 @@ import * as categoriesServices from './categoriesServices'
 import * as citiesServices from './citiesServices'
 import { checkDatabase } from '../database/database'
 import { Category, Country, City, Place } from '../types'
-import { IdError, NotFound } from '../utils/errors'
-import { isValidObjectId } from 'mongoose'
+import { DatabaseError, IdError, NotFound } from '../utils/errors'
 
 /**
- * This function retrieves recommended places from a database and returns them as a transformed array.
- * @returns a Promise that resolves to an array of Place objects.
+ * Retrieves recommended places from a database and returns them as a transformed array.
+ * @returns A Promise that resolves to an array of Place objects representing the recommended places.
+ * @throws Throws an error with the message "Error retrieving recommended places" if there is an error
+ * retrieving the places from the database.
  */
 export async function getRecommsPlaces (): Promise<Place[]> {
   try {
@@ -25,18 +27,18 @@ export async function getRecommsPlaces (): Promise<Place[]> {
 
     return transformedPlaces
   } catch (error) {
-    throw new Error('Error retrieving recommended places')
+    throw new DatabaseError('Error retrieving recommended places')
   }
 }
 
 /**
- * This function retrieves a place by its ID from a database, increments its request count, transforms
- * it, and returns it.
- * @param {string} ID - The ID parameter is a string that represents the unique identifier of a place
- * in the database.
- * @returns a Promise that resolves to an object representing a place, with its properties transformed,
- * if the place is found in the database and updated successfully. If the place is not found, an error
- * is thrown. If there is an error retrieving the place, an error is thrown as well.
+ * Retrieves a place by its ID from a database, increments its request count, transforms it, and returns it.
+ * @param ID - The ID of the place to retrieve.
+ * @returns A Promise that resolves to an object representing a place with its properties transformed if
+ * the place is found in the database and updated successfully.
+ * @throws Throws an IdError with the message "Invalid ID" if the provided ID is not a valid ObjectId.
+ * Throws a NotFound error with the message "Place not found" if the place is not found in the database.
+ * Throws an error with the message "Error retrieving place by ID" if there is an error retrieving the place.
  */
 export async function getPlaceById (ID: string): Promise<Place> {
   try {
@@ -64,21 +66,19 @@ export async function getPlaceById (ID: string): Promise<Place> {
     if (error instanceof IdError || error instanceof NotFound) {
       throw error
     } else {
-      throw new Error('Error retrieving place by ID')
+      throw new DatabaseError('Error retrieving place by ID')
     }
   }
 }
 
 /**
- * This function retrieves places from a database based on a given category ID and returns them in a
- * sorted and transformed format.
- * @param {string} categoryId - string parameter representing the ID of the category for which the
- * places are being retrieved.
- * @returns a Promise that resolves to an array of Place objects that belong to the category specified
- * by the categoryId parameter. The places are sorted in descending order based on the number of
- * requests they have received. The function also transforms the retrieved places using the
- * transformPlaces function before returning them. If an error occurs, the function throws an error
- * with the message "Error retrieving places by category".
+ * Retrieves places from a database based on a given category ID and returns them in a sorted and transformed format.
+ * @param categoryId - The ID of the category for which the places are being retrieved.
+ * @returns A Promise that resolves to an array of Place objects representing the places that belong to the
+ * specified category.
+ * @throws Throws an IdError with the message "Invalid ID" if the provided category ID is not a valid ObjectId.
+ * Throws a NotFound error with the message "Category not found" if the category is not found in the database.
+ * Throws an error with the message "Error retrieving places by category" if there is an error retrieving the places.
  */
 export async function getPlacesByCategory (categoryId: string): Promise<Place[]> {
   try {
@@ -105,18 +105,17 @@ export async function getPlacesByCategory (categoryId: string): Promise<Place[]>
     if (error instanceof IdError || error instanceof NotFound) {
       throw error
     } else {
-      throw new Error('Error retrieving places by category')
+      throw new DatabaseError('Error retrieving places by category')
     }
   }
 }
 
 /**
- * This function retrieves places by city and category, increments their request count, and returns the
- * transformed places.
- * @param {string} cityName - A string representing the name of a city.
- * @param {string} categoryName - The name of the category that the user wants to search for places in.
- * @returns a Promise that resolves to an array of transformed Place objects that match the given city
- * name and category name.
+ * Retrieves places by city and category, increments their request count, and returns the transformed places.
+ * @param cityName - The name of the city.
+ * @param categoryName - The name of the category.
+ * @returns A Promise that resolves to an array of transformed Place objects that match the given city name and category name.
+ * @throws Throws an error with the message "Error retrieving places by city and category" if there is an error retrieving the places.
  */
 export async function getPlacesByCityAndCategory (cityName: string, categoryName: string): Promise<Place[]> {
   try {
@@ -145,19 +144,15 @@ export async function getPlacesByCityAndCategory (cityName: string, categoryName
     return transformedPlaces
   } catch (error) {
     console.error(error)
-    throw new Error('Error retrieving places by city and category')
+    throw new DatabaseError('Error retrieving places by city and category')
   }
 }
 
 /**
- * The function transforms a Place or an array of Places by populating their country, category, and
- * city fields with their respective names.
- * @param {Place | Place[]} places - The parameter `places` can be either a single `Place` object or an
- * array of `Place` objects.
- * @returns The `transformPlaces` function returns a Promise that resolves to an array of transformed
- * `Place` objects if the input is an array of `Place` objects, or a single transformed `Place` object
- * if the input is a single `Place` object. The transformed `Place` objects have additional properties
- * such as the names of the associated `Country`, `Category`, and `City` objects.
+ * Transforms a Place or an array of Places by populating their country, category, and city fields with their respective names.
+ * @param places - The places to transform.
+ * @returns A Promise that resolves to an array of transformed Place objects if the input is an array of Place objects,
+ * or a single transformed Place object if the input is a single Place object.
  */
 async function transformPlaces (places: Place | Place[]): Promise<any> {
   const isArray = Array.isArray(places)

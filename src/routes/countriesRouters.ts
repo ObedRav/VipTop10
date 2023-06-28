@@ -3,7 +3,7 @@ import * as countriesServices from '../services/countriesServices'
 
 const router = express.Router()
 
-router.get('/countries', (_req, res, next) => {
+router.get('/countries', (_req: express.Request, res: express.Response, next: express.NextFunction) => {
   countriesServices.getCountries()
     .then((countries) => {
       res.json(countries)

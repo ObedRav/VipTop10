@@ -184,12 +184,101 @@ If the API Key is missing or invalid, you will receive a `401 Unauthorized` resp
 
 The API handles errors and returns appropriate HTTP status codes and error messages in the response. The possible error status codes include:
 
-- `400 Bad Request`: Invalid request parameters or missing required fields.
-- `401 Unauthorized`: Missing or invalid API Key.
-- `404 Not Found`: Resource not found.
-- `500 Internal Server Error`: Server error occurred.
+- `400 Bad Request`: Indicates invalid request parameters or missing required fields. This can occur if the request is not properly formatted or if required data is missing.
+- `401 Unauthorized`: Indicates that the request requires authentication, and either no credentials were provided or the provided credentials are invalid.
+- `404 Not Found`: Indicates that the requested resource could not be found. This can occur if the specified endpoint or resource does not exist.
+- `503 Service Unavailable`: Indicates that the server is currently unable to handle the request due to a temporary overload or maintenance. This can occur if there are issues connecting to the database.
+- `500 Internal Server Error`: Indicates that a server error occurred. This can occur due to various reasons, such as unexpected exceptions or issues with the server infrastructure.
 
-Make sure to handle these errors appropriately in your client application.
+When consuming the API, make sure to handle these errors appropriately in your client application. You can inspect the HTTP status code of the response to determine the type of error that occurred. Additionally, the response may include an error message that provides more information about the specific error.
+
+It's recommended to handle different error scenarios in your client application and provide meaningful feedback to the user based on the encountered errors.
+
+## Available Countries, Cities, and Categories :earth_americas:
+The available countries, cities, and categories are these:
+
+**Countries:**
+
+- Colombia :colombia:
+- Dominican Republic :dominican_republic:
+- United States :us:
+
+**Cities:** :cityscape:
+
+- Bogotá, Colombia
+- Medellín, Colombia
+- Cali, Colombia
+- Barranquilla, Colombia
+- Cartagena, Colombia
+- Cúcuta, Colombia
+- Bucaramanga, Colombia
+- Pereira, Colombia
+- Santa Marta, Colombia
+- Ibagué, Colombia
+- Villavicencio, Colombia
+- Pasto, Colombia
+- Manizales, Colombia
+- Montería, Colombia
+- Valledupar, Colombia
+- Santo Domingo, Dominican Republic
+- Santiago de los Caballeros, Dominican Republic
+- Santo Domingo Este, Dominican Republic
+- Santo Domingo Norte, Dominican Republic
+- Santo Domingo Oeste, Dominican Republic
+- San Pedro de Macorís, Dominican Republic
+- La Romana, Dominican Republic
+- Bella Vista, Dominican Republic
+- San Cristóbal, Dominican Republic
+- Puerto Plata, Dominican Republic
+- San Francisco de Macorís, Dominican Republic
+- Higüey, Dominican Republic
+- La Vega, Dominican Republic
+- Concepción de La Vega, Dominican Republic
+- Moca, Dominican Republic
+- Austin, United States
+- Chicago, United States
+- Columbus, United States
+- Dallas, United States
+- Houston, United States
+- Indianapolis, United States
+- Jacksonville, United States
+- Los Angeles, United States
+- New York City, United States
+- Philadelphia, United States
+- Phoenix, United States
+- San Antonio, United States
+- San Diego, United States
+- San Francisco, United States
+- San Jose, United States
+
+**Categories:**
+
+- Car Rental :car: 
+- Amusement Park :national_park:
+- Bowling Alley
+- Casino
+- Movie Theater
+- Night Club
+- Stadium :stadium:
+- Art Gallery
+- Museum
+- Bakery
+- Bar
+- Cafe
+- Meal Takeaway
+- Restaurant
+- Beauty Salon
+- Hair Care
+- Pharmacy
+- Spa
+- Book Store
+- Clothing Store
+- Convenience Store
+- Electronics Store
+- Jewelry Store
+- Liquor Store
+- Shoe Store
+- Shopping Mall
 
 ## Usage :white_check_mark:
 

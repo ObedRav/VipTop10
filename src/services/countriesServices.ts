@@ -1,15 +1,16 @@
 import { checkDatabase } from '../database/database'
 import CountryModel from '../models/Country'
 import { Country } from '../types'
+import { DatabaseError } from '../utils/errors'
 
 /**
- * This function retrieves the ID of a country from a database based on its name.
- * @param {string} countryName - The `countryName` parameter is a string that represents the name of a
- * country. This function uses the `countryName` parameter to search for a country in the database and
- * return its ID.
- * @returns the `_id` of the country object that matches the given `countryName` parameter. If no
- * matching country is found, it will return `undefined`. The return value is wrapped in a Promise that
- * resolves to a string.
+ * Retrieves the ID of a country from a database based on its name.
+ * @param countryName - The name of the country to fetch from the database.
+ * @returns A Promise that resolves to a string or null. The string value is the `_id` of the country
+ * object that matches the given `countryName` parameter. If no matching country is found, it will
+ * return `undefined`.
+ * @throws Throws an error with the message "Failed to fetch country - countriesServices/getCountryByName"
+ * if an error occurs during the database query.
  */
 export async function getCountryByName (countryName: string): Promise<string | null> {
   try {
@@ -20,16 +21,16 @@ export async function getCountryByName (countryName: string): Promise<string | n
     return country
   } catch (error: any) {
     console.error(error.message)
-    throw new Error('Failed to fetch country - countriesServices/getCountryByName')
+    throw new DatabaseError('Failed to fetch country - countriesServices/getCountryByName')
   }
 }
 
 /**
- * This function fetches all countries from a database and returns their names as an array of Country
- * objects.
- * @returns The function `getCountries` returns a promise that resolves to an array of `Country`
- * objects. The `Country` objects contain a `name` property. If there is an error, the function throws
- * an error with the message "Failed to fetch countries".
+ * Fetches all countries from a database and returns their names as an array of Country objects.
+ * @returns A Promise that resolves to an array of Country objects. Each Country object has a "name"
+ * property. If there is an error, the function throws an error with the message "Failed to fetch countries".
+ * @throws Throws an error with the message "Failed to fetch countries" if an error occurs during the
+ * database query.
  */
 export async function getCountries (): Promise<Country[]> {
   try {
@@ -40,6 +41,6 @@ export async function getCountries (): Promise<Country[]> {
 
     return countries
   } catch (error) {
-    throw new Error('Failed to fetch countries')
+    throw new DatabaseError('Failed to fetch countries')
   }
 }
