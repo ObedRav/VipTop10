@@ -89,6 +89,18 @@ app.use(validateApiKey)
 // consuming the routers
 app.use('/api', [placesRouters, countriesRouters, citiesRouters, categoriesRouters])
 
+// Define your API route
+app.get('/api', (_req, res) => {
+  // HTML content
+  const htmlContent = '<html><body><h1>Hello, API!</h1></body></html>'
+
+  // Set the Content-Type header to indicate that the response is HTML
+  res.setHeader('Content-Type', 'text/html')
+
+  // Send the HTML content as the response
+  res.send(htmlContent)
+})
+
 // implementing the errors
 app.use(errorHandler)
 
