@@ -4,7 +4,7 @@ import { NoApiKeyError } from '../utils/errors'
 
 const validApiKeys = process.env.API_KEYS_AUTHORIZED?.split(',') as string[]
 if (validApiKeys === undefined) {
-  throw new NoApiKeyError('No API key provided')
+  throw new NoApiKeyError('No API keys provided')
 }
 
 /**
