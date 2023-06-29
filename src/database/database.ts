@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { DatabaseError } from '../utils/errors'
+import { DatabaseError, CredentialsError } from '../utils/errors'
 
 // Obtaining env variables for the connection
 const USER = process.env.DATABASE_USER ?? 'default'
@@ -17,7 +17,11 @@ export async function connectDatabase (): Promise<void> {
       console.log('Connected to MongoDB Atlas')
     })
     .catch((error: Error) => {
-      throw new DatabaseError(`Failed to connect to MongoDB ${error.message}`)
+      if (error.message.includes('authentication failed')) {
+        throw new CredentialsError('Invalid database credentials')
+      } else {
+        throw new DatabaseError(`Failed to connect to MongoDB: ${error.message}`)
+      }
     })
 }
 
