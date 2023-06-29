@@ -24,3 +24,21 @@ export class DatabaseError extends Error {
     this.name = 'DatabaseError'
   }
 }
+
+/* The NoApiKeyError class extends the built-in Error class and represents an error related to no provide api keys to the auth.
+It adds a custom name, 'NoApiKeyError', to identify errors specifically related to the apikey. */
+export class NoApiKeyError extends Error {
+  constructor (message: string | undefined) {
+    super(message)
+    this.name = 'NoApiKeyError'
+  }
+}
+
+/* The CredentialsError class extends the built-in Error class and represents an error related to wrong credentials in the database.
+It adds a custom name, 'CredentialsError', to identify errors specifically related the database connection. */
+export class CredentialsError extends Error {
+  constructor (message: string | undefined) {
+    super(message)
+    this.name = 'CredentialsError'
+  }
+}

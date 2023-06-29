@@ -26,9 +26,11 @@ export const errorHandler = (
 
   if (err instanceof IdError) {
     return res.status(StatusCodes.BAD_REQUEST).json({ error: err.message })
-  } else if (err instanceof NotFound) {
+  }
+  if (err instanceof NotFound) {
     return res.status(StatusCodes.NOT_FOUND).json({ error: err.message })
-  } else if (err instanceof DatabaseError) {
+  }
+  if (err instanceof DatabaseError) {
     return res.status(StatusCodes.SERVICE_UNAVAILABLE).json({ error: err.message })
   }
 

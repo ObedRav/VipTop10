@@ -1,7 +1,11 @@
 import express from 'express'
 import { StatusCodes } from 'http-status-codes'
+import { NoApiKeyError } from '../utils/errors'
 
-const validApiKeys = process.env.API_KEYS_AUTHORIZED?.split(',') ?? []
+const validApiKeys = process.env.API_KEYS_AUTHORIZED?.split(',') as string[]
+if (validApiKeys === undefined) {
+  throw new NoApiKeyError('No API key provided')
+}
 
 /**
  * This function validates an API key in a request header and returns an error if it is not valid.
@@ -15,7 +19,7 @@ const validApiKeys = process.env.API_KEYS_AUTHORIZED?.split(',') ?? []
 export function validateApiKey (req: express.Request, res: express.Response, next: express.NextFunction): any {
   const apiKey = req.headers.authorization ?? ''
 
-  if (apiKey === null || !validApiKeys.includes(apiKey)) {
+  if (!validApiKeys.includes(apiKey)) {
     return res.status(StatusCodes.UNAUTHORIZED).json({ error: 'Unauthorized' })
   }
 
