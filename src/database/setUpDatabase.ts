@@ -109,7 +109,10 @@ async function createPlaces (cities: City[]): Promise<void> {
 
         // Making the peticion to the maps API
         const response = await fetch(`https://maps.googleapis.com/maps/api/place/textsearch/json?query=${searchString}&key=${API_KEY}`)
-        console.log('Fetch completed')
+        if (!response.ok) {
+          throw new Error(`Request failed with status ${response.status}`)
+        }
+
         const data = await response.json()
 
         // Parsing the info
