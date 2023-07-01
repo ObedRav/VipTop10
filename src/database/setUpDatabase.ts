@@ -92,7 +92,7 @@ async function createPlaces (cities: City[]): Promise<void> {
     for (const city of cities) {
       // Get Country
       const country: Country | null = await CountryModel.findById(city.country)
-      if (country == null) { // Check country
+      if (country === null) { // Check country
         console.warn("Country doesn't exist")
         continue
       }
@@ -100,7 +100,7 @@ async function createPlaces (cities: City[]): Promise<void> {
       for (const categoryId of city.categories) {
         // Get Category
         const category: Category | null = await CategoryModel.findById(categoryId)
-        if (category == null) { // Check Category
+        if (category === null) { // Check Category
           console.warn("Category doesn't exist")
           continue
         }
