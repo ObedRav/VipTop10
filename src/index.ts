@@ -83,23 +83,11 @@ scheduleDataCreation()
   .then(() => console.log('The scheduleDataCreation was called'))
   .catch(() => console.log('Data creation failed')) */
 
-// Apply API Key middleware to the entire API
-app.use(validateApiKey)
+// Serve static files from the "public" directory
+app.use(express.static('public'))
 
 // consuming the routers
-app.use('/api', [placesRouters, countriesRouters, citiesRouters, categoriesRouters])
-
-// Define your API route
-app.get('/api', (_req, res) => {
-  // HTML content
-  const htmlContent = '<html><body><h1>Hello, API!</h1></body></html>'
-
-  // Set the Content-Type header to indicate that the response is HTML
-  res.setHeader('Content-Type', 'text/html')
-
-  // Send the HTML content as the response
-  res.send(htmlContent)
-})
+app.use('/api', validateApiKey, [placesRouters, countriesRouters, citiesRouters, categoriesRouters])
 
 // implementing the errors
 app.use(errorHandler)

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Readme</title>
+</head>
+<body>
+    <h1>VIPTop10 🌍</h1>
+
+<p>This document provides instructions on how to use the VIPTop10 API, make requests, and handle validations. The API allows you to retrieve information about categories, countries, cities, and places, and provides filtering and recommendation features.</p>
+
+<p align="center">
+  <img src="./images/UML.png" alt="UML" height="550">
+</p>
+
+<h2>Node Installation 🚀</h2>
+
+<p align="center">
+  <img src="./images/node.png" alt="node logo" height="250">
+</p>
+
+<h3>Prerequisites 👻</h3>
+
+<ul>
+  <li>Node.js (version 18 or higher)</li>
+  <li>npm (Node Package Manager)</li>
+</ul>
+
+<h3>Installation Steps 🎿</h3>
+
+<ol>
+  <li>Clone the repository</li>
+  <li>Set up environment variables:
+    <ul>
+      <li>Create a file with <code>.env</code> extension in the root directory of the project.</li>
+      <li>Open the <code>.env</code> file and update the necessary variables:</li>
+    </ul>
+    <pre><code>DATABASE_USER=&lt;database-user&gt;
+DATABASE_PASSWORD=&lt;database-password&gt;
+PORT=&lt;port-number&gt;
+API_KEY_GOOGLE_MAPS=&lt;google-maps-api-key&gt;
+API_KEYS_AUTHORIZED=&lt;authorized-api-keys&gt;</code></pre>
+    <p>Replace <code>&lt;database-user&gt;</code>,<code>&lt;database-password&gt;</code>, <code>&lt;port-number&gt;</code>, <code>&lt;google-maps-api-key&gt;</code>, and <code>&lt;authorized-api-keys&gt;</code> with the actual values for your environment.</p>
+    <p>If the <code>.env</code> file doesn't export the variables correctly, you can manually export them by running the following commands in the terminal (replace <code>&lt;value&gt;</code> with the actual value for each variable):</p>
+    <pre><code>export DATABASE_USER=&lt;value&gt;
+export DATABASE_PASSWORD=&lt;value&gt;
+export PORT=&lt;value&gt;
+export API_KEY_GOOGLE_MAPS=&lt;value&gt;
+export API_KEYS_AUTHORIZED=&lt;value&gt;</code></pre>
+    <p>Make sure to export the variables correctly to ensure the project works as expected.</p>
+  </li>
+  <li>Generate SSL certificate files:
+    <ul>
+      <li>Run the existing script called <code>secure_protocol.sh</code> to generate the SSL certificate files.</li>
+    </ul>
+    <pre><code>bash secure_protocol.sh</code></pre>
+    <p>This script will generate the SSL certificate files (<code>server.key</code> and <code>server.cert</code>) and move them to the <code>SSL_Certificates</code> directory.</p>
+    <p>Please note that the generated key and certificate are suitable for development purposes only. In a production environment, you should obtain a trusted SSL certificate from a certificate authority (CA) to ensure secure communication with the API.</p>
+  </li>
+  <li>Install dependencies:
+    <pre><code>npm install</code></pre>
+  </li>
+  <li>Build the project:
+    <pre><code>npm run tsc</code></pre>
+  </li>
+  <li>Start the server:
+    <pre><code>npm start</code></pre>
+  </li>
+</ol>
+
+<p>The API will be accessible at <code>https://localhost:&lt;port&gt;/api</code>.</p>
+
+<h2>Docker Installation 🤖</h2>
+
+<p align="center">
+  <img src="./images/docker.png" alt="docker logo" height="250">
+</p>
+
+<h3>Prerequisites 👽</h3>
+
+<ul>
+  <li>Docker Engine</li>
+</ul>
+
+<h3>Installation Steps 🏂</h3>
+
+<ol>
+  <li>Clone the repository</li>
+  <li>Set up environment variables:
+    <ul>
+      <li>Create a file with <code>.txt</code> extension in the root directory of the project.</li>
+      <li>Open the <code>.txt</code> file and update the necessary variables:</li>
+    </ul>
+    <pre><code>DATABASE_USER=&lt;database-user&gt;
+DATABASE_PASSWORD=&lt;database-password&gt;
+PORT=&lt;port-number&gt;
+API_KEY_GOOGLE_MAPS=&lt;google-maps-api-key&gt;
+API_KEYS_AUTHORIZED=&lt;authorized-api-keys&gt;</code></pre>
+    <p>Replace <code>&lt;database-user&gt;</code>,<code>&lt;database-password&gt;</code>, <code>&lt;port-number&gt;</code>, <code>&lt;google-maps-api-key&gt;</code>, and <code>&lt;authorized-api-keys&gt;</code> with the actual values for your environment.</p>
+  </li>
+  <li>Generate SSL certificate files:
+    <ul>
+      <li>Run the existing script called <code>secure_protocol.sh</code> to generate the SSL certificate files.</li>
+    </ul>
+    <pre><code>bash secure_protocol.sh</code></pre>
+    <p>This script will generate the SSL certificate files (<code>server.key</code> and <code>server.cert</code>) and move them to the <code>SSL_Certificates</code> directory.</p>
+    <p>Please note that the generated key and certificate are suitable for development purposes only. In a production environment, you should obtain a trusted SSL certificate from a certificate authority (CA) to ensure secure communication with the API.</p>
+  </li>
+  <li>Build the Docker image:
+    <pre><code>docker build -t top10 .</code></pre>
+  </li>
+  <li>Start the Docker container:
+    <pre><code>docker run --env-file &lt;your-file.txt&gt; -p &lt;host-port&gt;:&lt;container-port&gt; top10</code></pre>
+    <p>Replace <code>&lt;host-port&gt;</code> with the desired port number on your host machine and <code>&lt;container-port&gt;</code> with the corresponding port number specified in the <code>.txt</code> file (usually 5000).</p>
+    <p>The API will be accessible at <code>https://localhost:&lt;port&gt;/api</code>.</p>
+</ol>
+
+<h2>API Endpoints 📃</h2>
+
+<p>The API exposes the following endpoints:</p>
+
+<ul>
+  <li><strong>GET /api/categories</strong>: Retrieve all categories.</li>
+  <li><strong>GET /api/categories/recomms</strong>: Retrieve recommended categories.</li>
+  <li><strong>GET /api/countries</strong>: Retrieve all countries.</li>
+  <li><strong>POST /api/cities</strong>: Filter cities by country.</li>
+  <li><strong>GET /api/places/recomms</strong>: Retrieve recommended places.</li>
+  <li><strong>POST /api/places</strong>: Filter places by city and category.</li>
+  <li><strong>GET /api/places/:id</strong>: Retrieve a place by ID.</li>
+  <li><strong>GET /api/places/category/:categoryid</strong>: Retrieve places by category.</li>
+</ul>
+
+<h2>Request Examples 📓</h2>
+
+<p>Here are some examples of how to make requests to the API endpoints:</p>
+
+<ul>
+  <li>Retrieve all categories:
+    <strong>GET</strong> <em>/api/categories</em>
+  </li>
+  <li>Filter places by city and category:
+    <strong>POST</strong> <em>/api/places</em>
+    <strong>Request Body:</strong>
+    <pre><code>{
+    "city": "New York",
+    "category": "Restaurant"
+}</code></pre>
+  </li>
+</ul>
+
+<h2>API Key Validation 📰</h2>
+
+<p>To ensure secure access to the API, the API Key validation middleware is implemented. The API Key must be included in the <code>Authorization</code> header of the request.</p>
+
+<p>If the API Key is missing or invalid, you will receive a <code>401 Unauthorized</code> response.</p>
+
+<pre><code>{
+    "error": "Unauthorized"
+}</code></pre>
+
+<h2>Error Handling ❌</h2>
+
+<p>The API handles errors and returns appropriate HTTP status codes and error messages in the response. The possible error status codes include:</p>
+
+<ul>
+  <li><code>400 Bad Request</code>: Indicates invalid request parameters or missing required fields. This can occur if the request is not properly formatted or if required data is missing.</li>
+  <li><code>401 Unauthorized</code>: Indicates that the request requires authentication, and either no credentials were provided or the provided credentials are invalid.</li>
+  <li><code>404 Not Found</code>: Indicates that the requested resource could not be found. This can occur if the specified endpoint or resource does not exist.</li>
+  <li><code>503 Service Unavailable</code>: Indicates that the server is currently unable to handle the request due to a temporary overload or maintenance. This can occur if there are issues connecting to the database.</li>
+  <li><code>500 Internal Server Error</code>: Indicates that a server error occurred. This can occur due to various reasons, such as unexpected exceptions or issues with the server infrastructure.</li>
+</ul>
+
+<p>When consuming the API, make sure to handle these errors appropriately in your client application. You can inspect the HTTP status code of the response to determine the type of error that occurred. Additionally, the response may include an error message that provides more information about the specific error.</p>
+
+<p>It's recommended to handle different error scenarios in your client application and provide meaningful feedback to the user based on the encountered errors.</p>
+
+<h2>Available Countries, Cities, and Categories 🌎</h2>
+
+<p>The available countries, cities, and categories are these:</p>
+
+<p><strong>Countries:</strong></p>
+
+<ul>
+  <li>Colombia 🇨🇴</li>
+  <li>Dominican Republic 🇩🇴</li>
+  <li>Ecuador 🇪🇨</li>
+  <li>Spain 🇪🇸</li>
+  <li>United States 🇺🇸</li>
+</ul>
+
+<p><strong>Cities:</strong></p>
+
+<ul>
+  <li>Barranquilla</li>
+  <li>Bogotá</li>
+  <li>Cali</li>
+  <li>Cartagena</li>
+  <li>Medellín</li>
+  <li>Santo Domingo</li>
+  <li>Guayaquil</li>
+  <li>Quito</li>
+  <li>Barcelona</li>
+  <li>Madrid</li>
+  <li>New York</li>
+  <li>Los Angeles</li>
+  <li>Miami</li>
+</ul>
+
+<p><strong>Categories:</strong></p>
+
+<ul>
+  <li>Restaurant</li>
+  <li>Hotel</li>
+  <li>Bar</li>
+  <li>Park</li>
+  <li>Museum</li>
+  <li>Beach</li>
+</ul>
+
+<h2>Conclusion 🎉</h2>
+
+<p>The VIPTop10 API provides a comprehensive set of endpoints to retrieve information about categories, countries, cities, and places. You can use the API to filter and recommend places based on specific criteria. Make sure to follow the installation steps to set up the API locally or using Docker. Refer to the API endpoints section for details on the available endpoints and request examples. Handle errors appropriately in your client application and provide meaningful feedback to the user. Enjoy using the VIPTop10 API and have fun exploring top-rated places around the world!</p>
+</body>
+</html>

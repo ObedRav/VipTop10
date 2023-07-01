@@ -41,8 +41,4 @@ export class CredentialsError extends Error {
     super(message)
     this.name = 'CredentialsError'
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 000dd1a673effebf60573af39f7f4b471a96af98
