@@ -40,8 +40,8 @@ export async function getCityByName (cityName: string): Promise<string | null> {
     // Checking database connection
     await checkDatabase()
 
-    const country: string | null = await CityModel.findOne({ name: cityName }, '_id')
-    return country
+    const city: string | null = await CityModel.findOne({ name: cityName }, '_id')
+    return city
   } catch (error: any) {
     console.error(error.message)
     throw new DatabaseError('The city doesnt exists')

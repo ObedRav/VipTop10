@@ -7,15 +7,17 @@ import https from 'https'
 import fs from 'fs'
 import path from 'path'
 import dotenv from 'dotenv'
+import csrf from 'csurf' // Import the csurf middleware
+import cookieParser from 'cookie-parser'
 // import routers
 import placesRouters from './routes/placesRouters'
 import countriesRouters from './routes/countriesRouters'
 import citiesRouters from './routes/citiesRouters'
 import categoriesRouters from './routes/categoriesRouters'
+
 // databaseConnection
 import { connectDatabase } from './database/database'
-// schedule data creation
-// import { scheduleDataCreation } from './database/dataScheduler'
+
 // validation api key
 import { validateApiKey } from './middleware/apiKey'
 import { errorHandler } from './utils/errorHandler'
@@ -70,13 +72,18 @@ const serverOptions = {
   cert: fs.readFileSync(path.join(__dirname, '../SSL_Certificates/server.cert'))
 }
 
-// creating the secure protocolo server
+// creating the secure protocol server
 const server = https.createServer(serverOptions, app)
+
+app.use(cookieParser())
+
+// CSRF protection
+app.use(csrf({ cookie: true }))
 
 // Connection to database
 connectDatabase()
   .then(() => console.log('Database connected from Index'))
-  .catch((err: Error) => console.error(`There was an error calling the function to connect to database: ${err.message}`))
+  .catch((err: Error) => console.error(`There was an error calling the function to connect to the database: ${err.message}`))
 
 /* Call the function to schedule data creation
 scheduleDataCreation()
