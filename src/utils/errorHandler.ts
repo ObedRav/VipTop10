@@ -35,6 +35,9 @@ export const errorHandler = (
   if (err instanceof DatabaseError) {
     return res.status(StatusCodes.SERVICE_UNAVAILABLE).json({ error: err.message })
   }
+  if (err instanceof DatabaseError) {
+    return res.status(StatusCodes.SERVICE_UNAVAILABLE).json({ error: err.message })
+  }
 
   return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
     error: 'An internal server error occurred. Please try again later.',
